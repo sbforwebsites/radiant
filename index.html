@@ -1,3 +1,6 @@
+bash
+
+cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,12 +102,12 @@ nav ul a:hover{color:var(--gold);}
 .mapbg{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(184,147,90,.04) 39px,rgba(184,147,90,.04) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(184,147,90,.04) 39px,rgba(184,147,90,.04) 40px);}
 footer{border-top:1px solid var(--br);padding:1.6rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .flogo{font-family:'Playfair Display',serif;font-size:.92rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
-.fsub{font-size:.5rem;letter-spacing:.13em;color:var(--td);text-transform:uppercase;margin-top:2px;}
+.fsub-f{font-size:.5rem;letter-spacing:.13em;color:var(--td);text-transform:uppercase;margin-top:2px;}
 .faddr{font-size:.6rem;color:var(--td);letter-spacing:.08em;text-transform:uppercase;text-align:center;line-height:1.9;}
 footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:uppercase;}
 .mo{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:1.5rem;}
 .mo.open{display:flex;}
-.modal{background:var(--ds);border:1px solid var(--br);width:100%;max-width:560px;max-height:92vh;overflow-y:auto;padding:2.2rem;position:relative;}
+.modal{background:var(--ds);border:1px solid var(--br);width:100%;max-width:580px;max-height:92vh;overflow-y:auto;padding:2.2rem;position:relative;}
 .mclose{position:absolute;top:.9rem;right:.9rem;background:none;border:none;color:var(--tm);font-size:1.3rem;cursor:pointer;line-height:1;}
 .mclose:hover{color:var(--wh);}
 .mey{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
@@ -128,9 +131,9 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 .fst{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--wh);margin:1rem 0 .65rem;padding-top:1rem;border-top:1px solid var(--br);}
 .fsub2{width:100%;padding:.82rem;background:var(--gold);color:var(--dark);border:none;font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;margin-top:1rem;transition:background .3s;}
 .fsub2:hover{background:var(--gold-l);}
-.for{text-align:center;font-size:.65rem;color:var(--td);margin:.85rem 0;position:relative;}
-.for::before,.for::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--br);}
-.for::before{left:0;}.for::after{right:0;}
+.for-div{text-align:center;font-size:.65rem;color:var(--td);margin:.85rem 0;position:relative;}
+.for-div::before,.for-div::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--br);}
+.for-div::before{left:0;}.for-div::after{right:0;}
 .eml{width:100%;padding:.72rem;background:transparent;border:1px solid var(--br);color:var(--tm);font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:block;text-align:center;}
 .eml:hover{border-color:var(--gold);color:var(--gold);}
 .xf{display:none;}
@@ -140,6 +143,13 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 .valve-notice{display:flex;align-items:flex-start;gap:.8rem;background:rgba(184,147,90,.06);border:1px solid rgba(184,147,90,.25);padding:.9rem 1.1rem;margin-bottom:1.8rem;font-size:.73rem;color:var(--tm);line-height:1.7;}
 .valve-notice span{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
 .valve-notice strong{color:var(--gold);}
+/* valve checkbox in modal */
+.valve-box{background:rgba(184,147,90,.05);border:1px solid rgba(184,147,90,.22);padding:.9rem 1rem;margin-bottom:1rem;display:none;}
+.valve-box.show{display:block;}
+.valve-check{display:flex;align-items:center;gap:.7rem;cursor:pointer;}
+.valve-check input[type=checkbox]{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;}
+.valve-check-label{font-size:.72rem;color:var(--tx);line-height:1.6;}
+.valve-check-label strong{color:var(--gold);}
 
 @media(max-width:768px){
   nav{padding:1rem 1.2rem;flex-wrap:wrap;gap:.8rem;}
@@ -189,7 +199,7 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
     <li><a href="#collection">Collection</a></li>
     <li><a href="#location">Visit Us</a></li>
   </ul>
-  <a href="#" class="ncta" onclick="openM('General Enquiry','purchase');return false;">Enquire Now</a>
+  <a href="#" class="ncta" onclick="openM('General Enquiry',false);return false;">Enquire Now</a>
 </nav>
 
 <section style="padding:0 3rem;">
@@ -206,7 +216,7 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
     </div>
     <div class="himg">
       <div class="himg-w">
-        <img src="/mnt/user-data/uploads/1779545853998_image.png" alt="Toronto Aluminium Radiator — The Radiant Collection">
+        <img src="Toronto-ALRAD-1-1809-WT-1-scaled.webp" alt="Toronto Aluminium Radiator — The Radiant Collection">
         <div class="himg-lbl">Toronto · Aluminium · White Matt</div>
       </div>
     </div>
@@ -218,7 +228,7 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
     <p class="slbl">Simple Process</p>
     <h2 class="stitle">How to Get Your Radiator</h2>
     <div class="gdiv"></div>
-    <p class="ssub">Simple — browse online, get a quote, then come and collect from our shop or have our team install it at your door.</p>
+    <p class="ssub">Browse online, get a quote, then collect from our shop or have our team install it at your door.</p>
     <div class="steps">
       <div class="step"><div class="snum">1</div><div><h3 class="step-t">Browse</h3><p class="step-p">Explore panel, designer, towel, electric and aluminium radiators online or come into the shop.</p></div></div>
       <div class="step"><div class="snum">2</div><div><h3 class="step-t">Enquire</h3><p class="step-p">Click any product and send us an enquiry. We'll come back to you with a price for exactly what you need.</p><span class="stag">Pricing on request</span></div></div>
@@ -237,7 +247,6 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
     <p class="slbl">Full Range</p>
     <h2 class="stitle">The Radiant Collection</h2>
     <div class="gdiv"></div>
-
     <div class="tabs">
       <button class="tab on" onclick="showTab('panel',this)">Panel Radiators</button>
       <button class="tab" onclick="showTab('designer',this)">Designer Radiators</button>
@@ -251,7 +260,7 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
       <p class="cat-intro">Your everyday essential. Panel radiators are the most common choice in UK homes — reliable, efficient and built to last. Our KRAD Type 22 delivers one of the highest heat outputs on the UK market for its size. Enquire for pricing.</p>
       <div class="pgrid">
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779543850491_image.png" alt="KRAD Type 22 White Panel Radiator">
+          <img class="pimg" src="WHITE-VERTICAL-9-scaled.jpg" alt="KRAD Type 22 White Panel Radiator">
           <div class="pbody">
             <p class="pcat">Panel Radiators</p>
             <h3 class="pname">KRAD Type 22</h3>
@@ -259,9 +268,8 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">300 × 400mm · <span>16.18 kg</span> · White Gloss · RAL9016 · Mild Steel · Up to 10 bar / 120°C</div>
             <div class="ptags"><span class="ptag">Type 22</span><span class="ptag">White</span><span class="ptag">RAL9016</span><span class="ptag">High Output</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('KRAD Type 22 300×400 White — EAN: 5060168220905','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('KRAD Type 22 300×400 White — EAN: 5060168220905','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('KRAD Type 22 300×400 White — EAN: 5060168220905','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('KRAD Type 22 300×400 White — EAN: 5060168220905',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('KRAD Type 22 300×400 White — EAN: 5060168220905',true)">Book Installation</button>
             </div>
           </div>
         </div>
@@ -270,31 +278,27 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 
     <!-- DESIGNER -->
     <div class="panel" id="t-designer">
-      <div class="valve-notice">
-        <span>⚠️</span>
-        <p><strong>Valves sold separately</strong> — not included with the radiator. Let us know when you enquire and we'll add compatible valves to your quote.</p>
-      </div>
-      <p class="cat-intro">Statement radiators that make the room. Built from mild steel and finished to a high standard — vertical panels, bold profiles and designs that work as hard as they look. White, anthracite and textured grey available.</p>
+      <div class="valve-notice"><span>⚠️</span><p><strong>Valves sold separately</strong> — not included. Let us know when you enquire and we'll add compatible valves to your quote.</p></div>
+      <p class="cat-intro">Statement radiators that make the room. Built from mild steel, finished to a high standard — vertical panels, bold profiles and designs that work as hard as they look.</p>
       <div class="pgrid">
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779544119034_image.png" alt="Boston Design Radiator White Vertical">
+          <img class="pimg" src="BOS1600-410W-2.webp" alt="Boston Design Radiator White Vertical">
           <div class="pbody">
             <p class="pcat">Designer Radiators</p>
             <h3 class="pname">Boston — White</h3>
-            <p class="pdesc">Tall slim vertical designer radiator with clean flat panels and a gloss white finish. Fits neatly against any wall and delivers serious heat without taking up much space. Wall brackets and fixings supplied.</p>
+            <p class="pdesc">Tall slim vertical designer radiator with clean flat panels and a gloss white finish. Delivers serious heat without taking up much space. Wall brackets and fixings supplied.</p>
             <div class="pspec">410 × 1600mm · <span>18.47 kg</span> · White Gloss · Mild Steel · Vertical</div>
             <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">White Gloss</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Boston Design Radiator 410×1600 White — EAN: 5060168223708','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 White — EAN: 5060168223708','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 White — EAN: 5060168223708','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Boston Design Radiator 410×1600 White — EAN: 5060168223708',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 White — EAN: 5060168223708',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779544915751_image.png" alt="Boston Design Radiator Textured Grey Vertical">
+          <img class="pimg" src="BOS1600-410A-2.webp" alt="Boston Design Radiator Textured Grey Vertical">
           <div class="pbody">
             <p class="pcat">Designer Radiators</p>
             <h3 class="pname">Boston — Textured Grey</h3>
@@ -302,15 +306,14 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">410 × 1600mm · <span>18.47 kg</span> · Textured Grey Matt · Mild Steel · Vertical</div>
             <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">Textured Grey</span><span class="ptag">Matt</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Boston Design Radiator 410×1600 Textured Grey — EAN: 5060168223821','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 Textured Grey — EAN: 5060168223821','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 Textured Grey — EAN: 5060168223821','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Boston Design Radiator 410×1600 Textured Grey — EAN: 5060168223821',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 Textured Grey — EAN: 5060168223821',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779544550048_image.png" alt="Cincinnati Design Radiator Anthracite Vertical">
+          <img class="pimg" src="CVG-2.jpg" alt="Cincinnati Design Radiator Anthracite Vertical">
           <div class="pbody">
             <p class="pcat">Designer Radiators</p>
             <h3 class="pname">Cincinnati — Anthracite</h3>
@@ -318,9 +321,8 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">351 × 2000mm · <span>33.6 kg</span> · Anthracite Matt · Mild Steel · Vertical</div>
             <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">Anthracite</span><span class="ptag">Semi-Circular Fins</span><span class="ptag">Statement</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Cincinnati Design Radiator 351×2000 Anthracite — EAN: 5060168220325','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Cincinnati Design Radiator 351×2000 Anthracite — EAN: 5060168220325','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Cincinnati Design Radiator 351×2000 Anthracite — EAN: 5060168220325','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Cincinnati Design Radiator 351×2000 Anthracite — EAN: 5060168220325',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Cincinnati Design Radiator 351×2000 Anthracite — EAN: 5060168220325',true)">Book Installation</button>
             </div>
           </div>
         </div>
@@ -330,15 +332,12 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 
     <!-- TOWEL RAILS -->
     <div class="panel" id="t-towel">
-      <div class="valve-notice">
-        <span>⚠️</span>
-        <p><strong>Valves sold separately</strong> — not included with the radiator. Let us know when you enquire and we'll add compatible valves to your quote.</p>
-      </div>
-      <p class="cat-intro">Heated towel rails for bathrooms and en-suites — chrome, textured grey and more. Classic straight rails, flat-bar designer options and bold minimal profiles. Something for every bathroom style.</p>
+      <div class="valve-notice"><span>⚠️</span><p><strong>Valves sold separately</strong> — not included. Let us know when you enquire and we'll add compatible valves to your quote.</p></div>
+      <p class="cat-intro">Heated towel rails for bathrooms and en-suites — chrome, textured grey and more. Classic straight rails, flat-bar designer options and bold minimal profiles.</p>
       <div class="pgrid">
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545134632_image.png" alt="Straight Towel Rail Chrome 400x800">
+          <img class="pimg" src="Straight-Chrome-Rail-22mm-1.jpg" alt="Straight Towel Rail Chrome">
           <div class="pbody">
             <p class="pcat">Towel Rails</p>
             <h3 class="pname">Straight Rail — Chrome</h3>
@@ -346,15 +345,14 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">400 × 800mm · <span>5.83 kg</span> · Chrome Gloss · Mild Steel · 7 bar max · 2.88L</div>
             <div class="ptags"><span class="ptag">Chrome</span><span class="ptag">22mm Tubes</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Straight Towel Rail 400×800 Chrome — EAN: 5060168220103','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Straight Towel Rail 400×800 Chrome — EAN: 5060168220103','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Straight Towel Rail 400×800 Chrome — EAN: 5060168220103','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Straight Towel Rail 400×800 Chrome — EAN: 5060168220103',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Straight Towel Rail 400×800 Chrome — EAN: 5060168220103',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779546064648_image.png" alt="Oregon Design Towel Rail Textured Grey">
+          <img class="pimg" src="Oregon-500x1200-Anthracite-Lifestyle-scaled.webp" alt="Oregon Design Towel Rail Textured Grey">
           <div class="pbody">
             <p class="pcat">Towel Rails</p>
             <h3 class="pname">Oregon — Textured Grey</h3>
@@ -362,15 +360,14 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">500 × 1180mm · <span>14.4 kg</span> · Textured Grey Matt · Mild Steel · Vertical</div>
             <div class="ptags"><span class="ptag">Textured Grey</span><span class="ptag">Flat Bar</span><span class="ptag">Central Heating</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Oregon Design Towel Rail 500×1180 Textured Grey — EAN: 5055681434588','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Oregon Design Towel Rail 500×1180 Textured Grey — EAN: 5055681434588','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Oregon Design Towel Rail 500×1180 Textured Grey — EAN: 5055681434588','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Oregon Design Towel Rail 500×1180 Textured Grey — EAN: 5055681434588',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Oregon Design Towel Rail 500×1180 Textured Grey — EAN: 5055681434588',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779546167969_image.png" alt="Atlantic Design Towel Rail Textured Grey">
+          <img class="pimg" src="ATL500-1200A.webp" alt="Atlantic Design Towel Rail Textured Grey">
           <div class="pbody">
             <p class="pcat">Towel Rails</p>
             <h3 class="pname">Atlantic — Textured Grey</h3>
@@ -378,15 +375,14 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">500 × 1185mm · <span>15.36 kg</span> · Textured Grey Matt · Mild Steel · Vertical</div>
             <div class="ptags"><span class="ptag">Textured Grey</span><span class="ptag">High Output</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Atlantic Design Towel Rail 500×1185 Textured Grey — EAN: 5055681434571','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Atlantic Design Towel Rail 500×1185 Textured Grey — EAN: 5055681434571','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Atlantic Design Towel Rail 500×1185 Textured Grey — EAN: 5055681434571','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Atlantic Design Towel Rail 500×1185 Textured Grey — EAN: 5055681434571',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Atlantic Design Towel Rail 500×1185 Textured Grey — EAN: 5055681434571',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779546281795_image.png" alt="Memphis Chrome Towel Rail 500x1200">
+          <img class="pimg" src="Memphis-500x1200-Chrome-Lifestyle-1-scaled.webp" alt="Memphis Chrome Towel Rail">
           <div class="pbody">
             <p class="pcat">Towel Rails</p>
             <h3 class="pname">Memphis — Chrome</h3>
@@ -394,9 +390,8 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">500 × 1200mm · <span>14.88 kg</span> · Chrome Gloss · Mild Steel · 10 bar max</div>
             <div class="ptags"><span class="ptag">Chrome</span><span class="ptag">Minimalist</span><span class="ptag">10 bar</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Memphis Towel Rail 500×1200 Chrome — EAN: 5055681405939','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Memphis Towel Rail 500×1200 Chrome — EAN: 5055681405939','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Memphis Towel Rail 500×1200 Chrome — EAN: 5055681405939','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Memphis Towel Rail 500×1200 Chrome — EAN: 5055681405939',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Memphis Towel Rail 500×1200 Chrome — EAN: 5055681405939',true)">Book Installation</button>
             </div>
           </div>
         </div>
@@ -406,69 +401,65 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 
     <!-- ELECTRIC -->
     <div class="panel" id="t-electric">
-      <p class="cat-intro">No pipework needed — our Capri electric radiators run off your mains supply and install anywhere. Wi-Fi, Google Home and Alexa compatible with full weekly programming as standard. Available in white and anthracite, vertical and horizontal.</p>
+      <p class="cat-intro">No pipework needed — our Capri electric radiators run off your mains supply and install anywhere. Wi-Fi, Google Home and Alexa compatible with full weekly programming as standard. White and anthracite, vertical and horizontal.</p>
       <div class="pgrid">
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545354417_image.png" alt="Capri Electric 1000W Vertical White">
+          <img class="pimg" src="CAP1600-362W-scaled.webp" alt="Capri Electric 1000W Vertical White">
           <div class="pbody">
             <p class="pcat">Electric Radiators</p>
             <h3 class="pname">Capri Electric — Vertical White</h3>
-            <p class="pdesc">Smart aluminium electric panel heater in gloss white. Wi-Fi, Google Home and Alexa compatible with LCD display and 7-day / 24-hour programmer. Open window detection and overheat protection built in. No pipework — just fix to the wall and connect.</p>
-            <div class="pspec">1600 × 362mm · <span>7.74 kg</span> · 1000W · White Gloss · Aluminium · Vertical · IPX0</div>
-            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Alexa / Google</span><span class="ptag">LCD Display</span><span class="ptag">No Pipework</span><span class="ptag">Fixings Included</span></div>
+            <p class="pdesc">Smart aluminium electric panel heater in gloss white. Wi-Fi, Google Home and Alexa compatible with LCD display and 7-day / 24-hour programmer. Open window detection and overheat protection built in.</p>
+            <div class="pspec">1600 × 362mm · <span>7.74 kg</span> · 1000W · White Gloss · Aluminium · Vertical</div>
+            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Alexa / Google</span><span class="ptag">LCD</span><span class="ptag">No Pipework</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Capri Electric 1000W Vertical White — EAN: 5055681449414','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Capri Electric 1000W Vertical White — EAN: 5055681449414','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Capri Electric 1000W Vertical White — EAN: 5055681449414','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Capri Electric 1000W Vertical White — EAN: 5055681449414',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Capri Electric 1000W Vertical White — EAN: 5055681449414',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545442707_image.png" alt="Capri Electric 1000W Vertical Anthracite">
+          <img class="pimg" src="CAP1600-362A-scaled.webp" alt="Capri Electric 1000W Vertical Anthracite">
           <div class="pbody">
             <p class="pcat">Electric Radiators</p>
             <h3 class="pname">Capri Electric — Vertical Anthracite</h3>
-            <p class="pdesc">The same smart Capri in a sleek anthracite matt finish. Wi-Fi, Google Home, Alexa, LCD display and full weekly programming — all included. A bold contemporary look for any room.</p>
-            <div class="pspec">1600 × 362mm · <span>7.74 kg</span> · 1000W · Anthracite Matt · Aluminium · Vertical · IPX0</div>
-            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Alexa / Google</span><span class="ptag">Anthracite</span><span class="ptag">No Pipework</span><span class="ptag">Fixings Included</span></div>
+            <p class="pdesc">The same smart Capri in a sleek anthracite matt finish. Wi-Fi, Google Home, Alexa, LCD display and full weekly programming. A bold contemporary look for any room.</p>
+            <div class="pspec">1600 × 362mm · <span>7.74 kg</span> · 1000W · Anthracite Matt · Aluminium · Vertical</div>
+            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Alexa / Google</span><span class="ptag">Anthracite</span><span class="ptag">No Pipework</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Capri Electric 1000W Vertical Anthracite — EAN: 5055681449445','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Capri Electric 1000W Vertical Anthracite — EAN: 5055681449445','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Capri Electric 1000W Vertical Anthracite — EAN: 5055681449445','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Capri Electric 1000W Vertical Anthracite — EAN: 5055681449445',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Capri Electric 1000W Vertical Anthracite — EAN: 5055681449445',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545606024_image.png" alt="Capri Electric 1000W Horizontal White">
+          <img class="pimg" src="Capri-White-Horizontal-1-scaled.webp" alt="Capri Electric 1000W Horizontal White">
           <div class="pbody">
             <p class="pcat">Electric Radiators</p>
             <h3 class="pname">Capri Electric — Horizontal White</h3>
-            <p class="pdesc">Compact horizontal Capri — ideal under windows or in tighter spaces. Same smart features: Wi-Fi, Google Home, Alexa, LCD display and 7-day programming. Lightweight aluminium in white gloss.</p>
-            <div class="pspec">500 × 544mm · <span>4.05 kg</span> · 1000W · White Gloss · Aluminium · Horizontal · IPX0</div>
-            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Alexa / Google</span><span class="ptag">Compact</span><span class="ptag">No Pipework</span><span class="ptag">Fixings Included</span></div>
+            <p class="pdesc">Compact horizontal Capri — ideal under windows or in tighter spaces. Same smart features: Wi-Fi, Google Home, Alexa, LCD display and 7-day programming. White gloss, lightweight aluminium.</p>
+            <div class="pspec">500 × 544mm · <span>4.05 kg</span> · 1000W · White Gloss · Aluminium · Horizontal</div>
+            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Alexa / Google</span><span class="ptag">Compact</span><span class="ptag">No Pipework</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Capri Electric 1000W Horizontal White — EAN: 5055681449476','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Capri Electric 1000W Horizontal White — EAN: 5055681449476','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Capri Electric 1000W Horizontal White — EAN: 5055681449476','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Capri Electric 1000W Horizontal White — EAN: 5055681449476',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Capri Electric 1000W Horizontal White — EAN: 5055681449476',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545626832_image.png" alt="Capri Electric 1000W Horizontal Anthracite">
+          <img class="pimg" src="Capri-Grey-Horizontal-2-scaled.webp" alt="Capri Electric 1000W Horizontal Anthracite">
           <div class="pbody">
             <p class="pcat">Electric Radiators</p>
             <h3 class="pname">Capri Electric — Horizontal Anthracite</h3>
             <p class="pdesc">The compact horizontal Capri in anthracite matt. All the smart features in a darker finish — great for modern kitchens, studies and spaces where white isn't the look.</p>
-            <div class="pspec">500 × 544mm · <span>4.05 kg</span> · 1000W · Anthracite Matt · Aluminium · Horizontal · IPX0</div>
-            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Alexa / Google</span><span class="ptag">Anthracite</span><span class="ptag">No Pipework</span><span class="ptag">Fixings Included</span></div>
+            <div class="pspec">500 × 544mm · <span>4.05 kg</span> · 1000W · Anthracite Matt · Aluminium · Horizontal</div>
+            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Alexa / Google</span><span class="ptag">Anthracite</span><span class="ptag">No Pipework</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Capri Electric 1000W Horizontal Anthracite — EAN: 5055681449506','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Capri Electric 1000W Horizontal Anthracite — EAN: 5055681449506','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Capri Electric 1000W Horizontal Anthracite — EAN: 5055681449506','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Capri Electric 1000W Horizontal Anthracite — EAN: 5055681449506',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Capri Electric 1000W Horizontal Anthracite — EAN: 5055681449506',true)">Book Installation</button>
             </div>
           </div>
         </div>
@@ -478,15 +469,12 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 
     <!-- ALUMINIUM -->
     <div class="panel" id="t-aluminium">
-      <div class="valve-notice">
-        <span>⚠️</span>
-        <p><strong>Valves sold separately</strong> — not included with the radiator. Let us know when you enquire and we'll add compatible valves to your quote.</p>
-      </div>
-      <p class="cat-intro">Aluminium radiators heat up faster, use less energy and respond quicker to your controls than steel. Ideal for homes with smart thermostats or anyone wanting better efficiency. Horizontal and vertical options available.</p>
+      <div class="valve-notice"><span>⚠️</span><p><strong>Valves sold separately</strong> — not included. Let us know when you enquire and we'll add compatible valves to your quote.</p></div>
+      <p class="cat-intro">Aluminium radiators heat up faster, use less energy and respond quicker to your controls than steel. Ideal for homes with smart thermostats or anyone wanting better efficiency.</p>
       <div class="pgrid">
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545034977_image.png" alt="Vermont Aluminium Radiator White">
+          <img class="pimg" src="VER600-13-1.webp" alt="Vermont Aluminium Radiator">
           <div class="pbody">
             <p class="pcat">Aluminium Radiators</p>
             <h3 class="pname">Vermont</h3>
@@ -494,15 +482,14 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">670 × 1040mm · <span>22.59 kg</span> · Aluminium · 16 Sizes Available</div>
             <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">16 Sizes</span><span class="ptag">Fast Heat</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Vermont 670×1040 Aluminium — EAN: 5055681408770','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Vermont 670×1040 Aluminium — EAN: 5055681408770','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Vermont 670×1040 Aluminium — EAN: 5055681408770','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Vermont 670×1040 Aluminium — EAN: 5055681408770',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Vermont 670×1040 Aluminium — EAN: 5055681408770',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545733724_image.png" alt="Victoria Single Horizontal White Aluminium">
+          <img class="pimg" src="main_Kartell_Victoria_575_x_440mm_White_Si....webp" alt="Victoria Single Horizontal White">
           <div class="pbody">
             <p class="pcat">Aluminium Radiators</p>
             <h3 class="pname">Victoria Single — Horizontal</h3>
@@ -510,15 +497,14 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">575 × 1180mm · <span>11.42 kg</span> · White · Aluminium · Horizontal</div>
             <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">White</span><span class="ptag">Horizontal</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Victoria Single 575×1180 White Horizontal — EAN: 5055681451653','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Victoria Single 575×1180 White Horizontal — EAN: 5055681451653','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Victoria Single 575×1180 White Horizontal — EAN: 5055681451653','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Victoria Single 575×1180 White Horizontal — EAN: 5055681451653',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Victoria Single 575×1180 White Horizontal — EAN: 5055681451653',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545790231_image.png" alt="Victoria Single Vertical White Aluminium">
+          <img class="pimg" src="WHITE-DETAIL-1-1.webp" alt="Victoria Single Vertical White">
           <div class="pbody">
             <p class="pcat">Aluminium Radiators</p>
             <h3 class="pname">Victoria Single — Vertical</h3>
@@ -526,15 +512,14 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">1775 × 292mm · <span>7.12 kg</span> · White · Aluminium · Vertical</div>
             <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">White</span><span class="ptag">Vertical</span><span class="ptag">Space Saving</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Victoria Single 1775×292 White Vertical — EAN: 5055681451691','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Victoria Single 1775×292 White Vertical — EAN: 5055681451691','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Victoria Single 1775×292 White Vertical — EAN: 5055681451691','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Victoria Single 1775×292 White Vertical — EAN: 5055681451691',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Victoria Single 1775×292 White Vertical — EAN: 5055681451691',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545853998_image.png" alt="Toronto Vertical White Aluminium">
+          <img class="pimg" src="Toronto-ALRAD-1-1809-WT-1-scaled.webp" alt="Toronto Vertical White Aluminium">
           <div class="pbody">
             <p class="pcat">Aluminium Radiators</p>
             <h3 class="pname">Toronto — Vertical</h3>
@@ -542,15 +527,14 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">1775 × 380mm · <span>13.16 kg</span> · White Matt · Aluminium · Vertical</div>
             <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">Rounded Fins</span><span class="ptag">Designer Look</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Toronto 1775×380 White Vertical — EAN: 5055681450977','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Toronto 1775×380 White Vertical — EAN: 5055681450977','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Toronto 1775×380 White Vertical — EAN: 5055681450977','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Toronto 1775×380 White Vertical — EAN: 5055681450977',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Toronto 1775×380 White Vertical — EAN: 5055681450977',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="/mnt/user-data/uploads/1779545935885_image.png" alt="Toronto Horizontal White Aluminium">
+          <img class="pimg" src="Toronto-ALRAD-1-622-WT-3-scaled.jpg" alt="Toronto Horizontal White Aluminium">
           <div class="pbody">
             <p class="pcat">Aluminium Radiators</p>
             <h3 class="pname">Toronto — Horizontal</h3>
@@ -558,16 +542,14 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
             <div class="pspec">575 × 1205mm · <span>15.86 kg</span> · White · Aluminium · Horizontal</div>
             <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">Rounded Fins</span><span class="ptag">Horizontal</span><span class="ptag">Fixings Included</span></div>
             <div class="pacts">
-              <button class="pbtn" onclick="openM('Toronto 575×1205 White Horizontal — EAN: 5055681450953','purchase')">Request a Quote</button>
-              <button class="pbtn s" onclick="openM('Toronto 575×1205 White Horizontal — EAN: 5055681450953','store')">Visit Our Shop</button>
-              <button class="pbtn s" onclick="openM('Toronto 575×1205 White Horizontal — EAN: 5055681450953','install')">Book Installation</button>
+              <button class="pbtn" onclick="openM('Toronto 575×1205 White Horizontal — EAN: 5055681450953',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Toronto 575×1205 White Horizontal — EAN: 5055681450953',true)">Book Installation</button>
             </div>
           </div>
         </div>
 
       </div>
     </div>
-
   </div>
 </section>
 
@@ -575,7 +557,7 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
   <div class="ctr">
     <div class="wgrid">
       <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3 class="wt">Supply &amp; Install</h3><p class="wp">We don't just sell — our team handles full professional installation at your door, end to end.</p></div>
-      <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div><h3 class="wt">East London Shop</h3><p class="wp">Come in to 955 Romford Road, E12. See the range in person and take it away the same day.</p></div>
+      <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div><h3 class="wt">East London Shop</h3><p class="wp">Come into 955 Romford Road, E12. See the range in person and take it away the same day.</p></div>
       <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg></div><h3 class="wt">Quality Products</h3><p class="wp">Premium radiators from trusted manufacturers. Every product fully guaranteed.</p></div>
       <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div><h3 class="wt">Free Advice</h3><p class="wp">Not sure what you need? Come in or call us — we'll help you pick the right radiator, no charge.</p></div>
     </div>
@@ -612,8 +594,8 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 </section>
 
 <footer>
-  <div><div class="flogo">The Radiant Collection</div><div class="fsub">by Apex Plumbing Merchants Ltd</div></div>
-  <div class="faddr">955 Romford Road, London, E12 5JR<br>sales@apexaimsltd.com<br>+44 7956 923185</div>
+  <div><div class="flogo">The Radiant Collection</div><div class="fsub-f">by Apex Plumbing Merchants Ltd</div></div>
+  <div class="faddr">955 Romford Road, London, E12 5JR<br>sales@apexaimsltd.com · +44 7956 923185</div>
   <p>© 2025 Apex Plumbing Merchants Ltd. All rights reserved.</p>
 </footer>
 
@@ -625,24 +607,39 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
     <h2 class="mtit">Request a Quote</h2>
     <p class="mref" id="mref">Enquiry: —</p>
     <div id="mform">
+
       <div class="sgrid">
-        <div class="sc on" id="s-purchase" onclick="setSvc('purchase')">
-          <div class="sci">🏪</div><h4>Get a Quote &amp; Collect</h4>
+        <div class="sc on" id="s-collect" onclick="setSvc('collect')">
+          <div class="sci">🏪</div>
+          <h4>Quote &amp; Collect</h4>
           <p>Get a quote, come into our shop at E12 5JR to pay and collect.</p>
           <p class="scn">955 Romford Rd, E12</p>
         </div>
         <div class="sc" id="s-install" onclick="setSvc('install')">
-          <div class="sci">🔧</div><h4>Book Installation</h4>
+          <div class="sci">🔧</div>
+          <h4>Book Installation</h4>
           <p>Our team comes to your door and fits it professionally.</p>
           <p class="scn">We come to you</p>
         </div>
       </div>
+
+      <!-- VALVE ADD-ON -->
+      <div class="valve-box" id="valve-box">
+        <label class="valve-check">
+          <input type="checkbox" id="valve-check">
+          <span class="valve-check-label">
+            <strong>Add valves to my enquiry</strong> — I'd like compatible radiator valves included in my quote
+          </span>
+        </label>
+      </div>
+
       <div class="fg">
         <div class="fr"><label>First Name *</label><input type="text" id="fn" placeholder="John"></div>
         <div class="fr"><label>Last Name *</label><input type="text" id="ln" placeholder="Smith"></div>
       </div>
       <div class="fr"><label>Email Address *</label><input type="email" id="em" placeholder="john@example.com"></div>
       <div class="fr"><label>Phone Number</label><input type="tel" id="ph" placeholder="+44 7700 900000"></div>
+
       <div class="xf" id="xf-install">
         <p class="fst">🔧 Installation Details</p>
         <div class="fr"><label>Your Property Address *</label><input type="text" id="ia" placeholder="123 Example Street, London, E1 2AB"></div>
@@ -652,9 +649,10 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
         </div>
         <p class="fnote">Our team comes to your door. We'll confirm your appointment and installation quote within 24 hours.</p>
       </div>
+
       <div class="fr" style="margin-top:1rem"><label>Message / Size Needed / Questions</label><textarea id="mg" placeholder="E.g. room size, width/height needed, colour preference, any questions…"></textarea></div>
       <button class="fsub2" onclick="submitM()">Send Enquiry to Apex →</button>
-      <div class="for">or contact us directly</div>
+      <div class="for-div">or contact us directly</div>
       <a class="eml" id="eml" href="mailto:sales@apexaimsltd.com">sales@apexaimsltd.com</a>
       <a class="eml" href="tel:+447956923185" style="margin-top:.5rem;">📞 +44 7956 923185</a>
     </div>
@@ -668,52 +666,89 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 </div>
 
 <script>
-var curSvc='purchase';
+var curSvc='collect';
+var showValves=false;
+
 function showTab(id,el){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on');});
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});
   document.getElementById('t-'+id).classList.add('on');
   el.classList.add('on');
 }
+
 function setSvc(t){
   curSvc=t;
-  ['purchase','install'].forEach(function(s){
+  ['collect','install'].forEach(function(s){
     var el=document.getElementById('s-'+s);
     if(el) el.classList.toggle('on',s===t);
   });
   document.getElementById('xf-install').style.display=t==='install'?'block':'none';
 }
-function openM(prod,svc){
+
+function openM(prod,install){
+  // detect if this product needs valves notice (not panel, not electric)
+  var needsValves = prod.indexOf('Electric')===-1 && prod.indexOf('KRAD')===-1;
+  showValves = needsValves;
+  var vb = document.getElementById('valve-box');
+  vb.classList.toggle('show', needsValves);
+  document.getElementById('valve-check').checked = false;
+
   document.getElementById('mref').textContent='Enquiry: '+prod;
   document.getElementById('mform').style.display='block';
   document.getElementById('suc').style.display='none';
   document.getElementById('mo').classList.add('open');
   document.body.style.overflow='hidden';
-  setSvc(svc==='install'?'install':'purchase');
+  setSvc(install?'install':'collect');
   document.getElementById('eml').href='mailto:sales@apexaimsltd.com?subject='+encodeURIComponent('Enquiry: '+prod+' — The Radiant Collection');
 }
+
 function closeM(){
   document.getElementById('mo').classList.remove('open');
   document.body.style.overflow='';
 }
+
 function closeBg(e){if(e.target===document.getElementById('mo'))closeM();}
+
 function submitM(){
   var fn=document.getElementById('fn').value.trim();
   var ln=document.getElementById('ln').value.trim();
   var em=document.getElementById('em').value.trim();
   if(!fn||!ln||!em){alert('Please fill in your name and email.');return;}
   var svcLbl=curSvc==='install'?'Installation (team comes to door)':'Quote & Collect (shop at E12 5JR)';
+  var valveNote='';
+  if(showValves && document.getElementById('valve-check').checked){
+    valveNote='\nValves: Yes — please include compatible valves in the quote';
+  }
   var extra='';
-  if(curSvc==='install'){extra='\nInstall Address: '+(document.getElementById('ia').value||'TBC')+'\nInstall Date: '+(document.getElementById('idate').value||'Flexible')+'\nInstall Time: '+(document.getElementById('it').value||'Flexible');}
+  if(curSvc==='install'){
+    extra='\nInstall Address: '+(document.getElementById('ia').value||'TBC')+
+          '\nInstall Date: '+(document.getElementById('idate').value||'Flexible')+
+          '\nInstall Time: '+(document.getElementById('it').value||'Flexible');
+  }
   var prod=document.getElementById('mref').textContent;
   var msg=document.getElementById('mg').value.trim();
   var subj=encodeURIComponent('Radiator Enquiry — '+prod);
-  var body=encodeURIComponent('=== NEW ENQUIRY — THE RADIANT COLLECTION ===\n\nName: '+fn+' '+ln+'\nEmail: '+em+'\nPhone: '+(document.getElementById('ph').value||'Not provided')+'\nService: '+svcLbl+extra+'\n\n'+prod+'\n\nMessage:\n'+(msg||'No message')+'\n\n--- apexplumbingmerchants.co.uk ---');
+  var body=encodeURIComponent(
+    '=== NEW ENQUIRY — THE RADIANT COLLECTION ===\n\n'+
+    'Name: '+fn+' '+ln+'\n'+
+    'Email: '+em+'\n'+
+    'Phone: '+(document.getElementById('ph').value||'Not provided')+'\n'+
+    'Service: '+svcLbl+extra+valveNote+'\n\n'+
+    prod+'\n\n'+
+    'Message:\n'+(msg||'No message')+
+    '\n\n--- apexplumbingmerchants website ---'
+  );
   window.location.href='mailto:sales@apexaimsltd.com?subject='+subj+'&body='+body;
   document.getElementById('mform').style.display='none';
   document.getElementById('suc').style.display='block';
 }
+
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
 </script>
 </body>
 </html>
+HTMLEOF
+echo "Done"
+Output
+
+Done
