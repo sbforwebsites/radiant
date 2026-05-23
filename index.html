@@ -1,6 +1,3 @@
-bash
-
-cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +6,7 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 <title>The Radiant Collection — by Apex Plumbing Merchants Ltd</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230e0c09'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='bold' fill='%23b8935a' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <style>
 :root{--gold:#b8935a;--gold-l:#d4aa78;--dark:#0e0c09;--dm:#1a1710;--ds:#221e16;--tx:#e8e0d0;--tm:#8a7d68;--td:#5a5040;--wh:#faf7f2;--br:rgba(184,147,90,0.18);}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -143,13 +141,15 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 .valve-notice{display:flex;align-items:flex-start;gap:.8rem;background:rgba(184,147,90,.06);border:1px solid rgba(184,147,90,.25);padding:.9rem 1.1rem;margin-bottom:1.8rem;font-size:.73rem;color:var(--tm);line-height:1.7;}
 .valve-notice span{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
 .valve-notice strong{color:var(--gold);}
-/* valve checkbox in modal */
 .valve-box{background:rgba(184,147,90,.05);border:1px solid rgba(184,147,90,.22);padding:.9rem 1rem;margin-bottom:1rem;display:none;}
 .valve-box.show{display:block;}
 .valve-check{display:flex;align-items:center;gap:.7rem;cursor:pointer;}
 .valve-check input[type=checkbox]{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;}
 .valve-check-label{font-size:.72rem;color:var(--tx);line-height:1.6;}
 .valve-check-label strong{color:var(--gold);}
+.electric-note{display:none;background:rgba(90,147,90,.07);border:1px solid rgba(90,147,90,.25);padding:.8rem 1rem;margin-bottom:1rem;font-size:.72rem;color:#8aad8a;line-height:1.6;}
+.electric-note.show{display:block;}
+.electric-note strong{color:#a0c8a0;}
 
 @media(max-width:768px){
   nav{padding:1rem 1.2rem;flex-wrap:wrap;gap:.8rem;}
@@ -260,7 +260,7 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
       <p class="cat-intro">Your everyday essential. Panel radiators are the most common choice in UK homes — reliable, efficient and built to last. Our KRAD Type 22 delivers one of the highest heat outputs on the UK market for its size. Enquire for pricing.</p>
       <div class="pgrid">
         <div class="pcard">
-          <img class="pimg" src="K-Rad-double_TE-52-scaled.webp" alt="K-Rad Type 22 White Panel Radiator">
+          <img class="pimg" src="K-Rad-double_TE-52-scaled.webp" alt="KRAD Type 22 White Panel Radiator">
           <div class="pbody">
             <p class="pcat">Panel Radiators</p>
             <h3 class="pname">KRAD Type 22</h3>
@@ -277,40 +277,41 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
     </div>
 
     <!-- DESIGNER -->
-   <div class="panel" id="t-designer">
-  <div class="valve-notice"><span>⚠️</span><p><strong>Valves sold separately</strong> — not included. Let us know when you enquire and we'll add compatible valves to your quote.</p></div>
-  <p class="cat-intro">Statement radiators that make the room. Built from mild steel, finished to a high standard — vertical panels, bold profiles and designs that work as hard as they look.</p>
-  <div class="pgrid">
+    <div class="panel" id="t-designer">
+      <div class="valve-notice"><span>⚠️</span><p><strong>Valves sold separately</strong> — not included. Let us know when you enquire and we'll add compatible valves to your quote.</p></div>
+      <p class="cat-intro">Statement radiators that make the room. Built from mild steel, finished to a high standard — vertical panels, bold profiles and designs that work as hard as they look.</p>
+      <div class="pgrid">
 
-    <div class="pcard">
-      <img class="pimg" src="BOS1600-410W-2.webp" alt="Boston Design Radiator White Vertical">
-      <div class="pbody">
-        <p class="pcat">Designer Radiators</p>
-        <h3 class="pname">Boston — White</h3>
-        <p class="pdesc">Tall slim vertical designer radiator with clean flat panels and a gloss white finish. Delivers serious heat without taking up much space. Wall brackets and fixings supplied.</p>
-        <div class="pspec">410 × 1600mm · <span>18.47 kg</span> · White Gloss · Mild Steel · Vertical</div>
-        <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">White Gloss</span><span class="ptag">Fixings Included</span></div>
-        <div class="pacts">
-          <button class="pbtn" onclick="openM('Boston Design Radiator 410×1600 White — EAN: 5060168223708',false)">Request a Quote</button>
-          <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 White — EAN: 5060168223708',true)">Book Installation</button>
+        <div class="pcard">
+          <img class="pimg" src="BOS1600-410W-2.webp" alt="Boston Design Radiator White Vertical">
+          <div class="pbody">
+            <p class="pcat">Designer Radiators</p>
+            <h3 class="pname">Boston — White</h3>
+            <p class="pdesc">Tall slim vertical designer radiator with clean flat panels and a gloss white finish. Delivers serious heat without taking up much space. Wall brackets and fixings supplied.</p>
+            <div class="pspec">410 × 1600mm · <span>18.47 kg</span> · White Gloss · Mild Steel · Vertical</div>
+            <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">White Gloss</span><span class="ptag">Fixings Included</span></div>
+            <div class="pacts">
+              <button class="pbtn" onclick="openM('Boston Design Radiator 410×1600 White — EAN: 5060168223708',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 White — EAN: 5060168223708',true)">Book Installation</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="pcard">
-      <img class="pimg" src="BOS1600-410A-2.webp" alt="Boston Design Radiator Textured Grey Vertical">
-      <div class="pbody">
-        <p class="pcat">Designer Radiators</p>
-        <h3 class="pname">Boston — Textured Grey</h3>
-        <p class="pdesc">The same slim Boston profile in a contemporary textured grey matt finish. Pairs beautifully with modern interiors, exposed brick and industrial-style spaces. Wall brackets and fixings supplied.</p>
-        <div class="pspec">410 × 1600mm · <span>18.47 kg</span> · Textured Grey Matt · Mild Steel · Vertical</div>
-        <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">Textured Grey</span><span class="ptag">Matt</span><span class="ptag">Fixings Included</span></div>
-        <div class="pacts">
-          <button class="pbtn" onclick="openM('Boston Design Radiator 410×1600 Textured Grey — EAN: 5060168223821',false)">Request a Quote</button>
-          <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 Textured Grey — EAN: 5060168223821',true)">Book Installation</button>
+        <div class="pcard">
+          <img class="pimg" src="BOS1600-410A-2.webp" alt="Boston Design Radiator Textured Grey Vertical">
+          <div class="pbody">
+            <p class="pcat">Designer Radiators</p>
+            <h3 class="pname">Boston — Textured Grey</h3>
+            <p class="pdesc">The same slim Boston profile in a contemporary textured grey matt finish. Pairs beautifully with modern interiors, exposed brick and industrial-style spaces. Wall brackets and fixings supplied.</p>
+            <div class="pspec">410 × 1600mm · <span>18.47 kg</span> · Textured Grey Matt · Mild Steel · Vertical</div>
+            <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">Textured Grey</span><span class="ptag">Matt</span><span class="ptag">Fixings Included</span></div>
+            <div class="pacts">
+              <button class="pbtn" onclick="openM('Boston Design Radiator 410×1600 Textured Grey — EAN: 5060168223821',false)">Request a Quote</button>
+              <button class="pbtn s" onclick="openM('Boston Design Radiator 410×1600 Textured Grey — EAN: 5060168223821',true)">Book Installation</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+
         <div class="pcard">
           <img class="pimg" src="CVG-2.jpg" alt="Cincinnati Design Radiator Anthracite Vertical">
           <div class="pbody">
@@ -503,7 +504,7 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
         </div>
 
         <div class="pcard">
-          <img class="pimg" src="WHITE-VERTICAL-9-scaled.jpg" <img class="pimg" src="WHITE-VERTICAL-9-scaled.jpg" alt="Victoria Single Vertical White">
+          <img class="pimg" src="WHITE-DETAIL-1-1.webp" alt="Victoria Single Vertical White">
           <div class="pbody">
             <p class="pcat">Aluminium Radiators</p>
             <h3 class="pname">Victoria Single — Vertical</h3>
@@ -598,7 +599,6 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
   <p>© 2025 Apex Plumbing Merchants Ltd. All rights reserved.</p>
 </footer>
 
-<!-- MODAL -->
 <div class="mo" id="mo" onclick="closeBg(event)">
   <div class="modal">
     <button class="mclose" onclick="closeM()">×</button>
@@ -606,7 +606,6 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
     <h2 class="mtit">Request a Quote</h2>
     <p class="mref" id="mref">Enquiry: —</p>
     <div id="mform">
-
       <div class="sgrid">
         <div class="sc on" id="s-collect" onclick="setSvc('collect')">
           <div class="sci">🏪</div>
@@ -622,14 +621,17 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
         </div>
       </div>
 
-      <!-- VALVE ADD-ON -->
+      <!-- Valves add-on — shown for non-electric, non-panel products -->
       <div class="valve-box" id="valve-box">
         <label class="valve-check">
           <input type="checkbox" id="valve-check">
-          <span class="valve-check-label">
-            <strong>Add valves to my enquiry</strong> — I'd like compatible radiator valves included in my quote
-          </span>
+          <span class="valve-check-label"><strong>Add valves to my enquiry</strong> — include compatible radiator valves in my quote</span>
         </label>
+      </div>
+
+      <!-- Electric note — shown for electric products only -->
+      <div class="electric-note" id="electric-note">
+        ✅ <strong>No valves needed</strong> — this is an electric radiator. It plugs straight into your mains supply, no pipework or valves required.
       </div>
 
       <div class="fg">
@@ -667,6 +669,7 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
 <script>
 var curSvc='collect';
 var showValves=false;
+var isElectric=false;
 
 function showTab(id,el){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on');});
@@ -685,12 +688,13 @@ function setSvc(t){
 }
 
 function openM(prod,install){
-  // detect if this product needs valves notice (not panel, not electric)
-  var needsValves = prod.indexOf('Electric')===-1 && prod.indexOf('KRAD')===-1;
-  showValves = needsValves;
-  var vb = document.getElementById('valve-box');
-  vb.classList.toggle('show', needsValves);
-  document.getElementById('valve-check').checked = false;
+  isElectric = prod.indexOf('Electric')!==-1;
+  var isPanel = prod.indexOf('KRAD')!==-1;
+  showValves = !isElectric && !isPanel;
+
+  document.getElementById('valve-box').classList.toggle('show', showValves);
+  document.getElementById('electric-note').classList.toggle('show', isElectric);
+  document.getElementById('valve-check').checked=false;
 
   document.getElementById('mref').textContent='Enquiry: '+prod;
   document.getElementById('mform').style.display='block';
@@ -735,7 +739,7 @@ function submitM(){
     'Service: '+svcLbl+extra+valveNote+'\n\n'+
     prod+'\n\n'+
     'Message:\n'+(msg||'No message')+
-    '\n\n--- apexplumbingmerchants website ---'
+    '\n\n--- theradiantcollection.co.uk ---'
   );
   window.location.href='mailto:sales@apexaimsltd.com?subject='+subj+'&body='+body;
   document.getElementById('mform').style.display='none';
@@ -746,8 +750,3 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
 </script>
 </body>
 </html>
-HTMLEOF
-echo "Done"
-Output
-
-Done
