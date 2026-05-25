@@ -3,315 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Radiant Collection — by Apex Plumbing Merchants Ltd</title>
+<title>Veloura — Home · Living · Interiors</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230e0c09'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='bold' fill='%23b8935a' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#b8935a;--gold-l:#d4aa78;--dark:#0e0c09;--dm:#1a1710;--ds:#221e16;--tx:#e8e0d0;--tm:#8a7d68;--td:#5a5040;--wh:#faf7f2;--br:rgba(184,147,90,0.18);}
+:root{
+  --cream:#EFE7DC;
+  --dark:#0E0E0E;
+  --dark2:#141210;
+  --dark3:#1C1814;
+  --brass:#BC6A43;
+  --brass-l:#D4956A;
+  --stone:#C8B89A;
+  --stone-d:#8A7868;
+  --stone-dd:#5A4E40;
+  --br:rgba(200,184,154,0.15);
+  --br2:rgba(200,184,154,0.08);
+}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--tx);overflow-x:hidden;}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:rgba(14,12,9,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--br);}
+body{font-family:'Jost',sans-serif;background:var(--dark);color:var(--cream);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3rem;background:rgba(14,14,14,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--br);}
 .nl{display:flex;flex-direction:column;}
-.nl-logo{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;}
-.nl-sub{font-size:.52rem;letter-spacing:.2em;color:var(--td);text-transform:uppercase;margin-top:2px;}
-nav ul{display:flex;gap:1.8rem;list-style:none;}
-nav ul a{text-decoration:none;color:var(--tm);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;transition:color .3s;}
-nav ul a:hover{color:var(--gold);}
-.nav-right{display:flex;align-items:center;gap:1rem;}
-.ncta{padding:.48rem 1.1rem;border:1px solid var(--gold);color:var(--gold);background:transparent;font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;}
-.ncta:hover{background:var(--gold);color:var(--dark);}
+.nl-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:.28em;color:var(--cream);text-transform:uppercase;}
+.nl-sub{font-size:.5rem;letter-spacing:.22em;color:var(--stone-dd);text-transform:uppercase;margin-top:2px;}
+nav ul{display:flex;gap:2rem;list-style:none;}
+nav ul a{text-decoration:none;color:var(--stone-d);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;transition:color .3s;font-weight:400;}
+nav ul a:hover{color:var(--brass-l);}
+.ncta{padding:.5rem 1.2rem;border:1px solid rgba(200,184,154,0.35);color:var(--cream);background:transparent;font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;}
+.ncta:hover{border-color:var(--brass);color:var(--brass-l);}
 
-/* ENQUIRY CART BUTTON */
-.cart-btn{position:relative;padding:.48rem .9rem;border:1px solid var(--br);color:var(--tm);background:transparent;font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:.5rem;}
-.cart-btn:hover{border-color:var(--gold);color:var(--gold);}
-.cart-count{background:var(--gold);color:var(--dark);border-radius:50%;width:16px;height:16px;font-size:.5rem;display:none;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;}
-.cart-count.show{display:flex;}
-
-/* ENQUIRY CART DRAWER */
-.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:360px;background:var(--ds);border-left:1px solid var(--br);z-index:300;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
-.cart-drawer.open{transform:translateX(0);}
-.cart-head{padding:1.4rem 1.6rem;border-bottom:1px solid var(--br);display:flex;justify-content:space-between;align-items:center;}
-.cart-head h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--wh);}
-.cart-close{background:none;border:none;color:var(--tm);font-size:1.3rem;cursor:pointer;line-height:1;}
-.cart-close:hover{color:var(--wh);}
-.cart-items{flex:1;overflow-y:auto;padding:1rem 1.6rem;}
-.cart-empty{text-align:center;padding:3rem 1rem;color:var(--td);font-size:.75rem;line-height:1.9;}
-.cart-empty-icon{font-size:2rem;margin-bottom:.8rem;opacity:.4;}
-.cart-item{border:1px solid var(--br);padding:.9rem 1rem;margin-bottom:.7rem;position:relative;background:rgba(184,147,90,.02);}
-.cart-item-name{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--wh);margin-bottom:.25rem;}
-.cart-item-sub{font-size:.62rem;color:var(--td);margin-bottom:.35rem;}
-.cart-item-valve{font-size:.6rem;color:var(--gold);margin-top:.2rem;}
-.cart-item-remove{position:absolute;top:.6rem;right:.7rem;background:none;border:none;color:var(--td);font-size:.9rem;cursor:pointer;line-height:1;}
-.cart-item-remove:hover{color:var(--tx);}
-.cart-foot{padding:1.2rem 1.6rem;border-top:1px solid var(--br);}
-.cart-note{font-size:.65rem;color:var(--td);margin-bottom:.9rem;line-height:1.7;}
-.cart-enquire{width:100%;padding:.82rem;background:var(--gold);color:var(--dark);border:none;font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .3s;margin-bottom:.5rem;}
-.cart-enquire:hover{background:var(--gold-l);}
-.cart-enquire:disabled{opacity:.4;cursor:not-allowed;}
-.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:299;display:none;}
-.cart-overlay.show{display:block;}
-
-/* ADD TO ENQUIRY button on cards */
-.pbtn-cart{flex:1;padding:.55rem .45rem;background:var(--gold);border:1px solid var(--gold);color:var(--dark);font-family:'DM Sans',sans-serif;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;white-space:nowrap;min-width:0;}
-.pbtn-cart:hover{background:var(--gold-l);border-color:var(--gold-l);}
-.pbtn-cart.added{background:transparent;color:var(--gold);border-color:var(--gold);}
-
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:7rem 3rem 3rem;max-width:1400px;margin:0 auto;gap:3rem;}
-.heyebrow{font-size:.6rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;}
-.htitle{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.2vw,4.8rem);font-weight:400;line-height:1.08;color:var(--wh);margin-bottom:.3rem;}
-.htitle em{font-style:italic;color:var(--gold);}
-.hbrand{font-size:.6rem;letter-spacing:.2em;color:var(--td);text-transform:uppercase;margin-bottom:1.6rem;}
-.hdesc{font-size:.86rem;line-height:1.9;color:var(--tm);max-width:420px;margin-bottom:2rem;}
+/* ── HERO ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 3rem 3rem;max-width:1400px;margin:0 auto;gap:4rem;}
+.heyebrow{font-size:.58rem;letter-spacing:.38em;color:var(--brass);text-transform:uppercase;margin-bottom:1.2rem;display:block;}
+.htitle{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,5.2rem);font-weight:300;line-height:1.06;color:var(--cream);margin-bottom:.4rem;}
+.htitle em{font-style:italic;color:var(--brass-l);}
+.hbrand{font-size:.54rem;letter-spacing:.22em;color:var(--stone-dd);text-transform:uppercase;margin-bottom:.6rem;display:block;}
+.h-divider{display:flex;align-items:center;gap:14px;margin:1.4rem 0;}
+.h-divider-line{flex:1;height:.5px;background:rgba(200,184,154,0.2);max-width:60px;}
+.h-divider-dot{width:4px;height:4px;border-radius:50%;background:var(--brass);}
+.hdesc{font-size:.84rem;line-height:1.95;color:var(--stone-d);max-width:420px;margin-bottom:2rem;font-weight:300;}
 .hbtns{display:flex;gap:.8rem;flex-wrap:wrap;}
-.bp{padding:.78rem 2rem;background:var(--gold);color:var(--dark);border:none;font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;}
-.bp:hover{background:var(--gold-l);}
-.bo{padding:.78rem 2rem;background:transparent;color:var(--gold);border:1px solid var(--gold);font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;}
-.bo:hover{background:var(--gold);color:var(--dark);}
+.bp{padding:.8rem 2.2rem;background:var(--cream);color:var(--dark);border:none;font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;font-weight:400;}
+.bp:hover{background:var(--stone);}
+.bo{padding:.8rem 2.2rem;background:transparent;color:var(--cream);border:1px solid rgba(239,231,220,0.35);font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;font-weight:400;}
+.bo:hover{border-color:var(--cream);}
 .himg{display:flex;justify-content:center;align-items:center;}
-.himg-w{position:relative;width:100%;max-width:450px;}
-.himg-w img{width:100%;height:540px;object-fit:cover;filter:brightness(.88);}
-.himg-lbl{position:absolute;bottom:1.2rem;left:1.2rem;background:rgba(14,12,9,.88);padding:.5rem .9rem;font-size:.6rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
+.himg-w{position:relative;width:100%;max-width:460px;}
+.himg-w img{width:100%;height:560px;object-fit:cover;filter:brightness(.82);}
+.himg-lbl{position:absolute;bottom:1.4rem;left:1.4rem;background:rgba(14,14,14,.9);padding:.55rem 1rem;font-size:.56rem;letter-spacing:.2em;color:var(--brass);text-transform:uppercase;font-family:'Jost',sans-serif;}
+
+/* ── SHARED ── */
 .ctr{max-width:1400px;margin:0 auto;padding:0 3rem;}
-.slbl{text-align:center;font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;}
-.stitle{text-align:center;font-family:'Playfair Display',serif;font-size:clamp(1.8rem,2.8vw,2.7rem);font-weight:400;color:var(--wh);margin-bottom:.5rem;}
-.ssub{text-align:center;font-size:.78rem;color:var(--tm);max-width:540px;margin:0 auto 2.8rem;line-height:1.8;}
-.gdiv{width:46px;height:1px;background:var(--gold);margin:.8rem auto 1.8rem;}
-.how{background:var(--ds);border-top:1px solid var(--br);border-bottom:1px solid var(--br);padding:5rem 0;}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative;}
-.steps::before{content:'';position:absolute;top:30px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.22;}
-.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 .8rem;}
-.snum{width:60px;height:60px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--gold);background:var(--ds);position:relative;z-index:1;margin-bottom:1rem;}
-.step-t{font-family:'Playfair Display',serif;font-size:.88rem;color:var(--wh);margin-bottom:.4rem;}
-.step-p{font-size:.68rem;color:var(--td);line-height:1.8;}
-.stag{display:inline-block;margin-top:.5rem;font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,147,90,.3);padding:.16rem .4rem;}
-.nboxes{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:2.4rem;}
-.nbox{border:1px solid var(--br);padding:1.2rem 1.4rem;display:flex;gap:1rem;align-items:flex-start;background:rgba(184,147,90,.03);}
-.nbox-ic{font-size:1.25rem;flex-shrink:0;margin-top:2px;}
-.nbox h4{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--wh);margin-bottom:.3rem;}
-.nbox p{font-size:.7rem;color:var(--td);line-height:1.8;}
-.colsec{padding:5rem 0;background:var(--dark);}
-.tabs{display:flex;justify-content:center;flex-wrap:wrap;border-bottom:1px solid var(--br);margin-bottom:2.8rem;}
-.tab{padding:.75rem 1.3rem;background:transparent;border:none;color:var(--tm);font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;}
-.tab:hover{color:var(--tx);}
-.tab.on{color:var(--gold);border-bottom-color:var(--gold);}
+.slbl{text-align:center;font-size:.58rem;letter-spacing:.38em;text-transform:uppercase;color:var(--brass);margin-bottom:.7rem;display:block;}
+.stitle{text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,2.8vw,2.8rem);font-weight:300;color:var(--cream);margin-bottom:.5rem;}
+.ssub{text-align:center;font-size:.78rem;color:var(--stone-d);max-width:560px;margin:0 auto 2.8rem;line-height:1.9;font-weight:300;}
+.gdiv{width:40px;height:.5px;background:var(--brass);margin:.9rem auto 2rem;opacity:.7;}
+
+/* ── INTRO STRIP ── */
+.intro{background:var(--cream);padding:7rem 0;}
+.intro-in{display:grid;grid-template-columns:1fr 1px 1fr;gap:6rem;align-items:center;}
+.intro-line{width:1px;height:100px;background:rgba(14,14,14,0.12);margin:auto;}
+.ilbl{font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:1rem;}
+.ititle{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--dark);margin-bottom:1.2rem;line-height:1.25;}
+.ibody{font-size:.82rem;line-height:1.95;color:rgba(14,14,14,.55);font-weight:300;}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--dark);display:block;line-height:1;}
+.stat-l{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(14,14,14,.45);display:block;margin-top:.4rem;}
+
+/* ── HOW IT WORKS ── */
+.how{background:var(--dark3);border-top:1px solid var(--br);border-bottom:1px solid var(--br);padding:5.5rem 0;}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);position:relative;margin-bottom:3rem;}
+.steps::before{content:'';position:absolute;top:30px;left:10%;right:10%;height:.5px;background:linear-gradient(90deg,transparent,rgba(200,184,154,.25),transparent);}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 .9rem;}
+.snum{width:60px;height:60px;border:1px solid rgba(200,184,154,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--stone);background:var(--dark3);position:relative;z-index:1;margin-bottom:1rem;}
+.step-t{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--cream);margin-bottom:.4rem;}
+.step-p{font-size:.66rem;color:var(--stone-dd);line-height:1.9;font-weight:300;}
+.stag{display:inline-block;margin-top:.6rem;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);border:1px solid rgba(188,106,67,.3);padding:.18rem .45rem;}
+.nboxes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:.5rem;}
+.nbox{border:1px solid var(--br);padding:1.4rem 1.6rem;display:flex;gap:1rem;align-items:flex-start;background:var(--br2);}
+.nbox-ic{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+.nbox h4{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--cream);margin-bottom:.35rem;font-weight:400;}
+.nbox p{font-size:.68rem;color:var(--stone-dd);line-height:1.85;font-weight:300;}
+
+/* ── COLLECTION TABS ── */
+.colsec{padding:5.5rem 0;background:var(--dark);}
+.tabs{display:flex;justify-content:center;flex-wrap:wrap;border-bottom:1px solid var(--br);margin-bottom:3rem;}
+.tab{padding:.8rem 1.4rem;background:transparent;border:none;color:var(--stone-d);font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-bottom:1px solid transparent;margin-bottom:-1px;white-space:nowrap;font-weight:400;}
+.tab:hover{color:var(--cream);}
+.tab.on{color:var(--brass-l);border-bottom-color:var(--brass);}
 .panel{display:none;}
 .panel.on{display:block;}
-.cat-intro{font-size:.78rem;color:var(--tm);max-width:650px;line-height:1.8;margin-bottom:2rem;}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;}
-.pcard{background:var(--ds);border:1px solid var(--br);overflow:hidden;transition:border-color .4s,transform .3s;position:relative;}
-.pcard:hover{border-color:rgba(184,147,90,.45);transform:translateY(-3px);}
-.pcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .4s;}
+.cat-intro{font-size:.78rem;color:var(--stone-d);max-width:680px;line-height:1.9;margin-bottom:2.5rem;font-weight:300;}
+
+/* ── PRODUCT GRID ── */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.pcard{background:var(--dark3);border:1px solid var(--br);overflow:hidden;transition:border-color .4s,transform .3s;position:relative;}
+.pcard:hover{border-color:rgba(200,184,154,0.35);transform:translateY(-4px);}
+.pcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--brass);transform:scaleX(0);transition:transform .5s;}
 .pcard:hover::after{transform:scaleX(1);}
-.pimg{width:100%;height:230px;object-fit:cover;filter:brightness(.87);transition:filter .4s;}
-.pcard:hover .pimg{filter:brightness(1);}
-.pbody{padding:1.2rem;}
-.pcat{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
-.pname{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:400;color:var(--wh);margin-bottom:.45rem;}
-.pdesc{font-size:.72rem;color:var(--td);line-height:1.8;margin-bottom:.6rem;}
-.pspec{font-size:.6rem;color:var(--td);margin-bottom:.8rem;line-height:1.7;border-left:2px solid var(--br);padding-left:.6rem;}
-.pspec span{color:var(--tm);}
-.ptags{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:1rem;}
-.ptag{font-size:.56rem;padding:.2rem .5rem;border:1px solid var(--br);color:var(--tm);letter-spacing:.08em;text-transform:uppercase;}
-.pacts{display:flex;gap:.45rem;flex-wrap:wrap;}
-.pbtn{flex:1;padding:.55rem .45rem;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;white-space:nowrap;min-width:0;}
-.pbtn:hover{background:var(--gold);color:var(--dark);}
-.pbtn.s{border-color:var(--br);color:var(--tm);}
-.pbtn.s:hover{border-color:var(--gold);color:var(--gold);background:transparent;}
-.why{background:var(--ds);border-top:1px solid var(--br);padding:3.5rem 0;}
+.pimg{width:100%;height:240px;object-fit:cover;filter:brightness(.85);transition:filter .4s;}
+.pcard:hover .pimg{filter:brightness(.95);}
+.pbody{padding:1.4rem;}
+.pcat{font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--brass);margin-bottom:.35rem;display:block;font-weight:400;}
+.pname{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--cream);margin-bottom:.5rem;}
+.pdesc{font-size:.7rem;color:var(--stone-dd);line-height:1.85;margin-bottom:1.1rem;font-weight:300;}
+.ptags{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:1.1rem;}
+.ptag{font-size:.54rem;padding:.2rem .55rem;border:1px solid var(--br);color:var(--stone-d);letter-spacing:.08em;text-transform:uppercase;}
+.pacts{display:flex;gap:.5rem;flex-wrap:wrap;}
+.pbtn{flex:1;padding:.58rem .5rem;background:transparent;border:1px solid rgba(200,184,154,0.3);color:var(--stone-d);font-family:'Jost',sans-serif;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;white-space:nowrap;min-width:0;font-weight:400;}
+.pbtn:hover,.pbtn.primary{border-color:var(--brass);color:var(--brass-l);}
+.pbtn.primary{border-color:var(--brass);color:var(--brass-l);}
+
+/* ── VALVE NOTICE ── */
+.valve-notice{display:flex;align-items:flex-start;gap:.9rem;background:rgba(188,106,67,0.05);border:1px solid rgba(188,106,67,0.2);padding:1rem 1.2rem;margin-bottom:2rem;font-size:.7rem;color:var(--stone-d);line-height:1.8;font-weight:300;}
+.valve-notice span{font-size:1rem;flex-shrink:0;margin-top:1px;}
+.valve-notice strong{color:var(--brass-l);}
+
+/* ── WHY ── */
+.why{background:var(--dark3);border-top:1px solid var(--br);padding:4rem 0;}
 .wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-.wi{text-align:center;padding:1.1rem;}
-.wic{width:44px;height:44px;margin:0 auto .8rem;border:1px solid var(--br);border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.wic svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.5;}
-.wt{font-family:'Playfair Display',serif;font-size:.92rem;color:var(--wh);margin-bottom:.4rem;}
-.wp{font-size:.7rem;color:var(--td);line-height:1.8;}
-.loc{background:var(--dark);padding:4.5rem 0;}
+.wi{text-align:center;padding:1.3rem 1rem;}
+.wic{width:46px;height:46px;margin:0 auto .9rem;border:1px solid var(--br);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.wic svg{width:20px;height:20px;stroke:var(--brass);fill:none;stroke-width:1.5;}
+.wt{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--cream);margin-bottom:.4rem;font-weight:400;}
+.wp{font-size:.68rem;color:var(--stone-dd);line-height:1.85;font-weight:300;}
+
+/* ── LOCATION ── */
+.loc{background:var(--dark);padding:5rem 0;}
 .locin{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-.loclbl{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;}
-.loctit{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:400;color:var(--wh);margin-bottom:1.2rem;line-height:1.2;}
-.locrows{display:flex;flex-direction:column;gap:.7rem;}
-.locrow{display:flex;align-items:center;gap:.8rem;font-size:.78rem;color:var(--tm);}
-.locrow svg{flex-shrink:0;stroke:var(--gold);fill:none;stroke-width:1.5;width:15px;height:15px;}
-.mapbox{background:var(--dm);border:1px solid var(--br);height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.mapbg{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(184,147,90,.04) 39px,rgba(184,147,90,.04) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(184,147,90,.04) 39px,rgba(184,147,90,.04) 40px);}
-footer{border-top:1px solid var(--br);padding:1.6rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-.flogo{font-family:'Playfair Display',serif;font-size:.92rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
-.fsub-f{font-size:.5rem;letter-spacing:.13em;color:var(--td);text-transform:uppercase;margin-top:2px;}
-.faddr{font-size:.6rem;color:var(--td);letter-spacing:.08em;text-transform:uppercase;text-align:center;line-height:1.9;}
-footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:uppercase;}
+.loclbl{font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);margin-bottom:.7rem;display:block;}
+.loctit{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--cream);margin-bottom:1.4rem;line-height:1.2;}
+.locrows{display:flex;flex-direction:column;gap:.85rem;}
+.locrow{display:flex;align-items:center;gap:.9rem;font-size:.76rem;color:var(--stone-d);font-weight:300;}
+.locrow svg{flex-shrink:0;stroke:var(--brass);fill:none;stroke-width:1.5;width:15px;height:15px;}
+.locrow a{color:var(--stone-d);text-decoration:none;}
+.mapbox{background:var(--dark3);border:1px solid var(--br);height:220px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.mapbg{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(200,184,154,.04) 39px,rgba(200,184,154,.04) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(200,184,154,.04) 39px,rgba(200,184,154,.04) 40px);}
 
-/* MODAL */
-.mo{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:1.5rem;}
+/* ── BRAND QUOTE ── */
+.bquote{background:var(--cream);padding:6rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:3rem;}
+.bq-text{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--dark);max-width:520px;line-height:1.35;}
+.bq-text em{font-style:normal;color:var(--brass);}
+.bq-right{text-align:right;flex-shrink:0;}
+.bq-lbl{font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(14,14,14,.45);display:block;margin-bottom:1.2rem;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--br);background:#080808;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem;}
+.flogo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:.28em;color:var(--cream);text-transform:uppercase;display:block;margin-bottom:.3rem;font-weight:300;}
+.fsub{font-size:.48rem;letter-spacing:.2em;color:var(--stone-dd);text-transform:uppercase;display:block;margin-bottom:1.2rem;}
+.fdesc{font-size:.68rem;color:rgba(239,231,220,.3);line-height:1.9;font-weight:300;}
+.fh{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:1.2rem;}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:.9rem;}
+.flinks a{font-size:.7rem;color:rgba(239,231,220,.4);text-decoration:none;transition:color .3s;font-weight:300;letter-spacing:.04em;}
+.flinks a:hover{color:var(--cream);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--br);}
+.fcopy{font-size:.58rem;color:rgba(239,231,220,.25);font-weight:300;letter-spacing:.06em;}
+.flegal{display:flex;gap:2rem;list-style:none;}
+.flegal a{font-size:.58rem;color:rgba(239,231,220,.25);text-decoration:none;}
+
+/* ── MODAL ── */
+.mo{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:1.5rem;}
 .mo.open{display:flex;}
-.modal{background:var(--ds);border:1px solid var(--br);width:100%;max-width:580px;max-height:92vh;overflow-y:auto;padding:2.2rem;position:relative;}
-.mclose{position:absolute;top:.9rem;right:.9rem;background:none;border:none;color:var(--tm);font-size:1.3rem;cursor:pointer;line-height:1;}
-.mclose:hover{color:var(--wh);}
-.mey{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
-.mtit{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:400;color:var(--wh);margin-bottom:.3rem;}
-.mref{font-size:.7rem;color:var(--tm);margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--br);}
-.sgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-bottom:1.3rem;}
-.sc{border:1px solid var(--br);padding:.9rem .7rem;cursor:pointer;transition:all .3s;text-align:center;}
-.sc:hover,.sc.on{border-color:var(--gold);background:rgba(184,147,90,.07);}
-.sc .sci{font-size:1.3rem;margin-bottom:.35rem;}
-.sc h4{font-family:'Playfair Display',serif;font-size:.8rem;color:var(--wh);margin-bottom:.22rem;}
-.sc p{font-size:.6rem;color:var(--td);line-height:1.6;}
-.sc .scn{font-size:.56rem;color:var(--gold);margin-top:.28rem;}
+.modal{background:var(--dark3);border:1px solid var(--br);width:100%;max-width:580px;max-height:92vh;overflow-y:auto;padding:2.4rem;position:relative;}
+.mclose{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--stone-d);font-size:1.4rem;cursor:pointer;line-height:1;font-family:'Jost',sans-serif;}
+.mclose:hover{color:var(--cream);}
+.mey{font-size:.54rem;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;display:block;}
+.mtit{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--cream);margin-bottom:.35rem;}
+.mref{font-size:.68rem;color:var(--stone-d);margin-bottom:1.3rem;padding-bottom:1.3rem;border-bottom:1px solid var(--br);font-weight:300;}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1.4rem;}
+.sc{border:1px solid var(--br);padding:1rem .8rem;cursor:pointer;transition:all .3s;text-align:center;}
+.sc:hover,.sc.on{border-color:var(--brass);background:rgba(188,106,67,.06);}
+.sc .sci{font-size:1.2rem;margin-bottom:.4rem;}
+.sc h4{font-family:'Cormorant Garamond',serif;font-size:.88rem;color:var(--cream);margin-bottom:.22rem;font-weight:400;}
+.sc p{font-size:.58rem;color:var(--stone-dd);line-height:1.65;font-weight:300;}
+.sc .scn{font-size:.54rem;color:var(--brass);margin-top:.3rem;}
 .fr{margin-bottom:.9rem;}
-.fr label{display:block;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--tm);margin-bottom:.32rem;}
-.fr input,.fr select,.fr textarea{width:100%;background:var(--dm);border:1px solid var(--br);color:var(--tx);font-family:'DM Sans',sans-serif;font-size:.78rem;padding:.62rem .82rem;outline:none;transition:border-color .3s;}
-.fr input:focus,.fr select:focus,.fr textarea:focus{border-color:var(--gold);}
+.fr label{display:block;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone-d);margin-bottom:.32rem;font-weight:400;}
+.fr input,.fr select,.fr textarea{width:100%;background:var(--dark);border:1px solid var(--br);color:var(--cream);font-family:'Jost',sans-serif;font-size:.78rem;padding:.65rem .85rem;outline:none;transition:border-color .3s;font-weight:300;}
+.fr input:focus,.fr select:focus,.fr textarea:focus{border-color:var(--brass);}
 .fr select{appearance:none;cursor:pointer;}
-.fr textarea{resize:vertical;min-height:78px;}
-.fg{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
-.fnote{font-size:.65rem;color:var(--td);margin-top:.3rem;line-height:1.6;}
-.fst{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--wh);margin:1rem 0 .65rem;padding-top:1rem;border-top:1px solid var(--br);}
-.fsub2{width:100%;padding:.82rem;background:var(--gold);color:var(--dark);border:none;font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;margin-top:1rem;transition:background .3s;}
-.fsub2:hover{background:var(--gold-l);}
-.for-div{text-align:center;font-size:.65rem;color:var(--td);margin:.85rem 0;position:relative;}
-.for-div::before,.for-div::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--br);}
-.for-div::before{left:0;}.for-div::after{right:0;}
-.eml{width:100%;padding:.72rem;background:transparent;border:1px solid var(--br);color:var(--tm);font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:block;text-align:center;}
-.eml:hover{border-color:var(--gold);color:var(--gold);}
+.fr textarea{resize:vertical;min-height:80px;}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.fnote{font-size:.62rem;color:var(--stone-dd);margin-top:.35rem;line-height:1.7;font-weight:300;}
+.fst{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--cream);margin:1.1rem 0 .7rem;padding-top:1.1rem;border-top:1px solid var(--br);font-weight:400;}
+.fsub2{width:100%;padding:.85rem;background:var(--cream);color:var(--dark);border:none;font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;margin-top:1.1rem;transition:background .3s;font-weight:400;}
+.fsub2:hover{background:var(--stone);}
+.for{text-align:center;font-size:.62rem;color:var(--stone-dd);margin:.9rem 0;position:relative;}
+.for::before,.for::after{content:'';position:absolute;top:50%;width:38%;height:.5px;background:var(--br);}
+.for::before{left:0;}.for::after{right:0;}
+.eml{width:100%;padding:.75rem;background:transparent;border:1px solid var(--br);color:var(--stone-d);font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:block;text-align:center;font-weight:400;margin-top:.5rem;}
+.eml:hover{border-color:var(--brass);color:var(--brass-l);}
 .xf{display:none;}
-.suc{display:none;text-align:center;padding:1.8rem 0;}
-.suc-t{font-size:2.2rem;color:var(--gold);margin-bottom:.8rem;}
-.suc p{color:var(--tm);font-size:.78rem;line-height:1.9;}
-.valve-notice{display:flex;align-items:flex-start;gap:.8rem;background:rgba(184,147,90,.06);border:1px solid rgba(184,147,90,.25);padding:.9rem 1.1rem;margin-bottom:1.8rem;font-size:.73rem;color:var(--tm);line-height:1.7;}
-.valve-notice span{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
-.valve-notice strong{color:var(--gold);}
-.valve-box{background:rgba(184,147,90,.05);border:1px solid rgba(184,147,90,.22);padding:.9rem 1rem;margin-bottom:1rem;display:none;}
-.valve-box.show{display:block;}
-.valve-check{display:flex;align-items:center;gap:.7rem;cursor:pointer;}
-.valve-check input[type=checkbox]{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;}
-.valve-check-label{font-size:.72rem;color:var(--tx);line-height:1.6;}
-.valve-check-label strong{color:var(--gold);}
-.electric-note{display:none;background:rgba(80,130,80,.08);border:1px solid rgba(80,160,80,.2);padding:.8rem 1rem;margin-bottom:1rem;font-size:.72rem;color:#8fc88f;line-height:1.6;border-radius:2px;}
-.electric-note.show{display:block;}
-.electric-note strong{color:#a8d8a8;}
+.suc{display:none;text-align:center;padding:2rem 0;}
+.suc-t{font-size:2.5rem;color:var(--brass);margin-bottom:.9rem;}
+.suc p{color:var(--stone-d);font-size:.78rem;line-height:2;font-weight:300;}
 
-/* modal cart summary */
-.mcart-summary{background:rgba(184,147,90,.04);border:1px solid var(--br);padding:.9rem 1rem;margin-bottom:1.2rem;display:none;}
-.mcart-summary.show{display:block;}
-.mcart-summary-title{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
-.mcart-summary-item{font-size:.68rem;color:var(--tm);padding:.2rem 0;border-bottom:1px solid rgba(184,147,90,.08);line-height:1.6;}
-.mcart-summary-item:last-child{border-bottom:none;}
-
+/* ── MOBILE ── */
 @media(max-width:768px){
   nav{padding:1rem 1.2rem;flex-wrap:wrap;gap:.8rem;}
   nav ul{display:none;}
-  .hero{grid-template-columns:1fr!important;padding:6rem 1.2rem 2rem!important;gap:2rem!important;min-height:auto!important;}
-  .htitle{font-size:2.4rem!important;}
-  .himg-w img{height:300px!important;}
+  .ncta{font-size:.56rem;padding:.4rem .9rem;}
+  .hero{grid-template-columns:1fr;padding:7rem 1.2rem 2rem;gap:2rem;min-height:auto;}
+  .htitle{font-size:2.4rem;}
+  .himg-w img{height:280px;}
   .hbtns{flex-direction:column;}
-  .ctr{padding:0 1.2rem!important;}
-  .how{padding:3rem 0!important;}
-  .steps{grid-template-columns:1fr!important;gap:2rem!important;}
+  .bp,.bo{text-align:center;}
+  .ctr{padding:0 1.2rem;}
+  .how{padding:3.5rem 0;}
+  .steps{grid-template-columns:1fr;gap:2rem;}
   .steps::before{display:none;}
   .step{flex-direction:row;text-align:left;align-items:flex-start;gap:1rem;}
   .snum{flex-shrink:0;width:46px;height:46px;font-size:1rem;margin-bottom:0;}
-  .nboxes{grid-template-columns:1fr!important;}
-  .tabs{gap:0;overflow-x:auto;flex-wrap:nowrap!important;justify-content:flex-start!important;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .nboxes{grid-template-columns:1fr;gap:.9rem;}
+  .tabs{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;padding-bottom:0;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
   .tabs::-webkit-scrollbar{display:none;}
-  .tab{font-size:.58rem!important;padding:.65rem .9rem!important;white-space:nowrap;flex-shrink:0;}
-  .pgrid{grid-template-columns:1fr!important;}
-  .pimg{height:220px!important;}
-  .pbody{padding:1rem!important;}
-  .pacts{flex-direction:column!important;}
-  .pbtn,.pbtn-cart{width:100%!important;padding:.65rem!important;}
-  .wgrid{grid-template-columns:1fr 1fr!important;}
-  .locin{grid-template-columns:1fr!important;gap:2rem!important;}
-  footer{flex-direction:column!important;text-align:center!important;padding:1.5rem 1.2rem!important;}
-  .mo{padding:0!important;align-items:flex-end!important;}
-  .modal{max-height:92vh!important;padding:1.5rem!important;border-left:none!important;border-right:none!important;border-bottom:none!important;}
-  .sgrid{grid-template-columns:1fr!important;}
-  .fg{grid-template-columns:1fr!important;}
-  .cart-drawer{width:100%;}
+  .tab{flex-shrink:0;}
+  .pgrid{grid-template-columns:1fr;gap:1.2rem;}
+  .pimg{height:200px;}
+  .pacts{flex-direction:column;}
+  .wgrid{grid-template-columns:1fr 1fr;gap:1rem;}
+  .locin{grid-template-columns:1fr;gap:2rem;}
+  .mapbox{height:160px;}
+  .loctit{font-size:1.7rem;}
+  .stitle{font-size:1.8rem;}
+  .bquote{flex-direction:column;padding:4rem 1.5rem;}
+  .bq-right{text-align:left;}
+  .intro-in{grid-template-columns:1fr;gap:3rem;}
+  .intro-line{display:none;}
+  footer .footer-top{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.2rem 2rem;}
+  .footer-bottom{flex-direction:column;gap:.8rem;padding:1.2rem;text-align:center;}
+  .mo{padding:0;align-items:flex-end;}
+  .modal{max-height:92vh;border-radius:0;padding:1.5rem;border-left:none;border-right:none;border-bottom:none;}
+  .sgrid{grid-template-columns:1fr;gap:.6rem;}
+  .fg{grid-template-columns:1fr;}
+  .mtit{font-size:1.5rem;}
 }
 @media(max-width:480px){
-  .htitle{font-size:2rem!important;}
-  .wgrid{grid-template-columns:1fr!important;}
-}
-
-/* COOKIE BANNER */
-.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:600;background:var(--ds);border-top:1px solid var(--br);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -4px 24px rgba(0,0,0,.4);}
-.cookie-banner.show{transform:translateY(0);}
-.cookie-text{font-size:.68rem;color:var(--tm);line-height:1.7;flex:1;min-width:200px;}
-.cookie-text a{color:var(--gold);text-decoration:none;}
-.cookie-text a:hover{text-decoration:underline;}
-.cookie-btns{display:flex;gap:.6rem;flex-shrink:0;}
-.cookie-accept{padding:.5rem 1.2rem;background:var(--gold);color:var(--dark);border:none;font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
-.cookie-accept:hover{background:var(--gold-l);}
-.cookie-decline{padding:.5rem 1.2rem;background:transparent;color:var(--tm);border:1px solid var(--br);font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .3s;}
-.cookie-decline:hover{border-color:var(--gold);color:var(--gold);}
-@media(max-width:600px){.cookie-banner{padding:.9rem 1.2rem;}.cookie-btns{width:100%;}.cookie-accept,.cookie-decline{flex:1;text-align:center;}}
-
-/* REVIEWS */
-.reviews{background:var(--dark);padding:5rem 0;border-top:1px solid var(--br);}
-.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:0;}
-.rcard{background:var(--ds);border:1px solid var(--br);padding:1.6rem 1.4rem;position:relative;transition:border-color .3s;}
-.rcard:hover{border-color:rgba(184,147,90,.35);}
-.rquote{font-size:.78rem;color:var(--tm);line-height:1.9;margin-bottom:1.2rem;font-style:italic;}
-.rquote::before{content:'"';font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--gold);opacity:.3;position:absolute;top:.8rem;left:1rem;line-height:1;}
-.rstars{color:var(--gold);font-size:.85rem;letter-spacing:.1em;margin-bottom:.5rem;}
-.rauthor{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--td);}
-.rplatform{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--td);margin-top:.2rem;opacity:.7;}
-.rsource{text-align:center;margin-top:1.8rem;}
-.rsource a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--br);padding:.5rem 1.2rem;transition:all .3s;}
-.rsource a:hover{border-color:var(--gold);background:rgba(184,147,90,.06);}
-@media(max-width:768px){
-  .rgrid{grid-template-columns:1fr!important;}
-  .reviews{padding:3rem 0!important;}
+  .htitle{font-size:2rem;}
+  .wgrid{grid-template-columns:1fr;}
+  .himg-w img{height:240px;}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nl">
-    <span class="nl-logo">The Radiant Collection</span>
-    <span class="nl-sub">by Apex Plumbing Merchants Ltd</span>
+    <span class="nl-logo">Veloura</span>
+    <span class="nl-sub">Home · Living · Interiors</span>
   </div>
   <ul>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#collection">Collection</a></li>
     <li><a href="#location">Visit Us</a></li>
   </ul>
-  <div class="nav-right"><button class="cart-btn" onclick="openCart()">
-      🗒 Enquiry List
-      <span class="cart-count" id="cart-count">0</span>
-    </button>
-  </div>
+  <a href="#" class="ncta" onclick="openM('General Enquiry','purchase');return false;">Enquire Now</a>
 </nav>
 
-<!-- CART OVERLAY -->
-<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
-
-<!-- ENQUIRY CART DRAWER -->
-<div class="cart-drawer" id="cart-drawer">
-  <div class="cart-head">
-    <h3>Your Enquiry List</h3>
-    <button class="cart-close" onclick="closeCart()">×</button>
-  </div>
-  <div class="cart-items" id="cart-items">
-    <div class="cart-empty">
-      <div class="cart-empty-icon">📋</div>
-      <p>No products added yet.<br>Browse the collection and click<br><strong style="color:var(--tm)">"Add to Enquiry"</strong> on any product.</p>
-    </div>
-  </div>
-  <div class="cart-foot">
-    <p class="cart-note">Add the products you're interested in, then send us one enquiry for everything at once. We'll come back to you with pricing.</p>
-    <button class="cart-enquire" id="cart-enquire-btn" onclick="openCartModal()" disabled>Send Enquiry →</button>
-  </div>
-</div>
-
-<section style="padding:0 3rem;">
+<!-- HERO -->
+<section style="padding:0 0;">
   <div class="hero">
     <div>
-      <p class="heyebrow">East London · 955 Romford Road, E12 5JR</p>
-      <h1 class="htitle">Where Heat<br>Meets <em>Art.</em></h1>
-      <p class="hbrand">by Apex Plumbing Merchants Ltd</p>
-      <p class="hdesc">London's destination for panel, designer, towel, electric and aluminium radiators. We supply and install — visit our East London shop or enquire online for pricing.</p>
+      <span class="heyebrow">Est. 2026 — Premium Home Products</span>
+      <h1 class="htitle">Where Form<br>Meets <em>Function.</em></h1>
+      <span class="hbrand">Veloura · Home · Living · Interiors</span>
+      <div class="h-divider">
+        <div class="h-divider-line"></div>
+        <div class="h-divider-dot"></div>
+        <div class="h-divider-line"></div>
+      </div>
+      <p class="hdesc">London's destination for designer radiators, brassware and luxury home products. We supply and install — visit our showroom or enquire online for pricing and availability.</p>
       <div class="hbtns">
         <a href="#collection" class="bp">Browse Collection</a>
         <a href="#how" class="bo">How It Works</a>
@@ -319,59 +285,140 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
     </div>
     <div class="himg">
       <div class="himg-w">
-        <img src="Toronto-ALRAD-1-1809-WT-1-scaled.webp" alt="Toronto Aluminium Radiator — The Radiant Collection">
-        <div class="himg-lbl">Toronto · Aluminium · White Matt</div>
+        <img src="https://kartelluk.com/wp-content/uploads/2025/06/K-Rad-double_TE-45-scaled.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80'"
+             alt="Designer Radiator">
+        <div class="himg-lbl">Designer Radiators · Premium Range</div>
       </div>
     </div>
   </div>
 </section>
 
+
+
+<!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="ctr">
-    <p class="slbl">Simple Process</p>
-    <h2 class="stitle">How to Get Your Radiator</h2>
+    <span class="slbl">Simple Process</span>
+    <h2 class="stitle">How to Get Your Order</h2>
     <div class="gdiv"></div>
-    <p class="ssub">Browse online, get a quote, then collect from our shop or have our team install it at your door.</p>
+    <p class="ssub">Three simple options — collect from our London store, book a showroom visit, or have our team deliver and install at your door.</p>
     <div class="steps">
-      <div class="step"><div class="snum">1</div><div><h3 class="step-t">Browse</h3><p class="step-p">Explore panel, designer, towel, electric and aluminium radiators online or come into the shop.</p></div></div>
-      <div class="step"><div class="snum">2</div><div><h3 class="step-t">Enquire</h3><p class="step-p">Add products to your enquiry list and send us everything in one go. We'll come back with pricing.</p><span class="stag">Pricing on request</span></div></div>
-      <div class="step"><div class="snum">3</div><div><h3 class="step-t">Pay &amp; Collect</h3><p class="step-p">Come into our shop at 955 Romford Road, E12 to pay and collect — or add installation and we come to you.</p><span class="stag">2 easy options</span></div></div>
-      <div class="step"><div class="snum">4</div><div><h3 class="step-t">All Done</h3><p class="step-p">Radiator collected or fitted by our team. Whether a bold statement piece or a reliable everyday panel — sorted.</p></div></div>
+      <div class="step"><div class="snum">1</div><div><h3 class="step-t">Browse</h3><p class="step-p">Explore our full range of designer radiators, brassware, towel rails and more — online or in our showroom.</p></div></div>
+      <div class="step"><div class="snum">2</div><div><h3 class="step-t">Enquire</h3><p class="step-p">Click any product and send us an enquiry. We'll come back with pricing for the exact spec, size and finish you need.</p><span class="stag">Pricing on request</span></div></div>
+      <div class="step"><div class="snum">3</div><div><h3 class="step-t">Choose Your Option</h3><p class="step-p">Purchase and collect in store, book a showroom appointment, or add professional installation.</p><span class="stag">3 easy options</span></div></div>
+      <div class="step"><div class="snum">4</div><div><h3 class="step-t">We Come to You</h3><p class="step-p">If you add installation, our team comes to your property with the product and fits it professionally.</p><span class="stag">Your door</span></div></div>
+      <div class="step"><div class="snum">5</div><div><h3 class="step-t">All Done</h3><p class="step-p">Your product is installed and ready. Whether a statement piece or everyday essential — your space, elevated.</p></div></div>
     </div>
     <div class="nboxes">
-      <div class="nbox"><div class="nbox-ic">🏪</div><div><h4>Come Into the Shop</h4><p>Get your quote, pop into <strong style="color:var(--tm)">955 Romford Road, E12 5JR</strong> to pay and pick it up. <strong style="color:var(--tm)">Mon–Fri: 8:30am–6pm · Sat: 8:30am–5pm · Sun: 10am–2pm.</strong></p></div></div>
-      <div class="nbox"><div class="nbox-ic">🔧</div><div><h4>Book Installation</h4><p>Our team comes to your door, brings the radiator and installs it professionally. <strong style="color:var(--tm)">Installation quoted separately — just ask when you enquire.</strong></p></div></div>
+      <div class="nbox"><div class="nbox-ic">🏪</div><div><h4>Quote &amp; Collect</h4><p>Get your quote, come to our London showroom to pay and collect. Great if you have your own installer.</p></div></div>
+      <div class="nbox"><div class="nbox-ic">📅</div><div><h4>Book a Showroom Visit</h4><p>See the full range in person. Come in, talk to us and sort everything face to face at a time that suits you.</p></div></div>
+      <div class="nbox"><div class="nbox-ic">🔧</div><div><h4>Book Installation</h4><p>Our team comes to your door, brings the product and installs it professionally. <strong style="color:var(--stone-d)">Quoted separately.</strong></p></div></div>
     </div>
   </div>
 </section>
 
+<!-- COLLECTION -->
 <section class="colsec" id="collection">
   <div class="ctr">
-    <p class="slbl">Full Range</p>
-    <h2 class="stitle">The Radiant Collection</h2>
+    <span class="slbl">Full Range</span>
+    <h2 class="stitle">The Veloura Collection</h2>
     <div class="gdiv"></div>
+
     <div class="tabs">
-      <button class="tab on" onclick="showTab('designer',this)">Designer Radiators</button>
-      <button class="tab" onclick="showTab('panel',this)">Panel Radiators</button>
+      <button class="tab on" onclick="showTab('panel',this)">Panel Radiators</button>
+      <button class="tab" onclick="showTab('designer',this)">Designer Radiators</button>
       <button class="tab" onclick="showTab('towel',this)">Towel Rails</button>
       <button class="tab" onclick="showTab('electric',this)">Electric Radiators</button>
+      <button class="tab" onclick="showTab('column',this)">Column Radiators</button>
       <button class="tab" onclick="showTab('aluminium',this)">Aluminium Radiators</button>
     </div>
 
     <!-- PANEL -->
-    <div class="panel" id="t-panel">
-      <p class="cat-intro">Your everyday essential. Panel radiators are the most common choice in UK homes — reliable, efficient and built to last. Our KRAD Type 22 delivers one of the highest heat outputs on the UK market for its size.</p>
+    <div class="panel on" id="t-panel">
+      <p class="cat-intro">Your everyday essential. Panel radiators are the most common in UK homes — reliable, efficient and available in a huge range of sizes. Type 22 is our most popular. Enquire for pricing on any size.</p>
       <div class="pgrid">
         <div class="pcard">
-          <img class="pimg" src="K-Rad-double_TE-52-scaled.webp" alt="KRAD Type 22 White Panel Radiator">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/K-Rad-double_TE-45-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80'" alt="Type 22 Double Panel">
           <div class="pbody">
-            <p class="pcat">Panel Radiators</p>
-            <h3 class="pname">KRAD Type 22</h3>
-            <p class="pdesc">One of the highest heat outputs on the UK market for its size. Wall-mounted horizontal panel in premium RAL9016 white enamel. Comes complete with brackets, bolts, vents, plugs, factory-fitted top grilles and side panels.</p>
-            <div class="pspec">300 × 400mm · <span>16.18 kg</span> · White Gloss · RAL9016 · Mild Steel · Up to 10 bar / 120°C</div>
-            <div class="ptags"><span class="ptag">Type 22</span><span class="ptag">White</span><span class="ptag">High Output</span><span class="ptag">Fixings Included</span></div>
+            <span class="pcat">Panel Radiators</span>
+            <h3 class="pname">Type 22 Double Panel</h3>
+            <p class="pdesc">Our most popular seller. Double panel, double convector — maximum heat output for living rooms, kitchens and larger spaces. White finish, huge range of sizes.</p>
+            <div class="ptags"><span class="ptag">Double Panel</span><span class="ptag">White</span><span class="ptag">Best Seller</span><span class="ptag">Multiple Sizes</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-krad" onclick="addToCart('KRAD Type 22 300×400 White','EAN: 5060168220905',false,'cart-btn-krad')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Type 22 Double Panel','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Type 22 Double Panel','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Type 22 Double Panel','install')">Book Install</button>
+            </div>
+          </div>
+        </div>
+        <div class="pcard">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/K-Rad-double_TE-45-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'" alt="K-Flat">
+          <div class="pbody">
+            <span class="pcat">Panel Radiators</span>
+            <h3 class="pname">K-Flat</h3>
+            <p class="pdesc">Modern flat-fronted panel radiator — smooth, sleek and stylish. Perfect for contemporary homes that want clean, minimal lines.</p>
+            <div class="ptags"><span class="ptag">Flat Panel</span><span class="ptag">Modern</span><span class="ptag">White</span></div>
+            <div class="pacts">
+              <button class="pbtn primary" onclick="openM('K-Flat Panel','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('K-Flat Panel','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('K-Flat Panel','install')">Book Install</button>
+            </div>
+          </div>
+        </div>
+        <div class="pcard">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/K-Rad-double_TE-45-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80'" alt="K-Flat Premium">
+          <div class="pbody">
+            <span class="pcat">Panel Radiators</span>
+            <h3 class="pname">K-Flat Premium</h3>
+            <p class="pdesc">Top of the range — ultra-smooth finish, superior build quality. For bedrooms and living spaces where design really matters.</p>
+            <div class="ptags"><span class="ptag">Flat Panel</span><span class="ptag">Premium</span><span class="ptag">White</span></div>
+            <div class="pacts">
+              <button class="pbtn primary" onclick="openM('K-Flat Premium','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('K-Flat Premium','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('K-Flat Premium','install')">Book Install</button>
+            </div>
+          </div>
+        </div>
+        <div class="pcard">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/K-Rad-double_TE-45-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'" alt="Type 11 Single Panel">
+          <div class="pbody">
+            <span class="pcat">Panel Radiators</span>
+            <h3 class="pname">Type 11 Single Panel</h3>
+            <p class="pdesc">Ideal for smaller rooms, hallways and spaces where a slimmer profile is needed. Cost-effective and reliable.</p>
+            <div class="ptags"><span class="ptag">Single Panel</span><span class="ptag">Slim</span><span class="ptag">White</span></div>
+            <div class="pacts">
+              <button class="pbtn primary" onclick="openM('Type 11 Single Panel','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Type 11 Single Panel','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Type 11 Single Panel','install')">Book Install</button>
+            </div>
+          </div>
+        </div>
+        <div class="pcard">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/K-Rad-double_TE-45-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80'" alt="Type 21 P+">
+          <div class="pbody">
+            <span class="pcat">Panel Radiators</span>
+            <h3 class="pname">Type 21 P+</h3>
+            <p class="pdesc">Single panel with single convector — a popular all-rounder for medium sized rooms and bedrooms. Sits between Type 11 and Type 22 in output.</p>
+            <div class="ptags"><span class="ptag">Single Panel</span><span class="ptag">Single Convector</span><span class="ptag">White</span></div>
+            <div class="pacts">
+              <button class="pbtn primary" onclick="openM('Type 21 P+','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Type 21 P+','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Type 21 P+','install')">Book Install</button>
+            </div>
+          </div>
+        </div>
+        <div class="pcard">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/K-Rad-double_TE-45-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'" alt="Type 33 Triple Panel">
+          <div class="pbody">
+            <span class="pcat">Panel Radiators</span>
+            <h3 class="pname">Type 33 Triple Panel</h3>
+            <p class="pdesc">Triple panel, triple convector — maximum heat output in a compact space. Ideal for large rooms or properties that need powerful heating.</p>
+            <div class="ptags"><span class="ptag">Triple Panel</span><span class="ptag">High Output</span><span class="ptag">White</span></div>
+            <div class="pacts">
+              <button class="pbtn primary" onclick="openM('Type 33 Triple Panel','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Type 33 Triple Panel','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Type 33 Triple Panel','install')">Book Install</button>
             </div>
           </div>
         </div>
@@ -379,709 +426,467 @@ footer p{font-size:.58rem;color:var(--td);letter-spacing:.1em;text-transform:upp
     </div>
 
     <!-- DESIGNER -->
-    <div class="panel on" id="t-designer">
-      <div class="valve-notice"><span>⚠️</span><p><strong>Valves sold separately</strong> — not included. Let us know when you enquire and we'll add compatible valves to your quote.</p></div>
-      <p class="cat-intro">Statement radiators that make the room. Built from mild steel, finished to a high standard — vertical panels, bold profiles and designs that work as hard as they look.</p>
+    <div class="panel" id="t-designer">
+      <div class="valve-notice"><span>⚠️</span><p><strong>Valves required</strong> — sold separately. When you enquire, just let us know and we'll include compatible valves in your quote. Not sure what you need? We'll advise you.</p></div>
+      <p class="cat-intro">Statement pieces for modern interiors. Designer radiators combine serious heat output with serious style — vertical panels, bold horizontal bars and feature pieces that become part of your room's design.</p>
       <div class="pgrid">
-
         <div class="pcard">
-          <img class="pimg" src="BOS1600-410W-2.webp" alt="Boston Design Radiator White Vertical">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/MOD500-800C.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'" alt="Mode Chrome">
           <div class="pbody">
-            <p class="pcat">Designer Radiators</p>
-            <h3 class="pname">Boston — White</h3>
-            <p class="pdesc">Tall slim vertical designer radiator with clean flat panels and a gloss white finish. Delivers serious heat without taking up much space. Wall brackets and fixings supplied.</p>
-            <div class="pspec">410 × 1600mm · <span>18.47 kg</span> · White Gloss · Mild Steel · Vertical</div>
-            <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">White Gloss</span><span class="ptag">Fixings Included</span></div>
+            <span class="pcat">Designer Radiators</span>
+            <h3 class="pname">Mode</h3>
+            <p class="pdesc">Sleek chrome designer radiator with a horizontal bar design. Bold, modern and a genuine feature piece. Chrome finish, multiple sizes available.</p>
+            <div class="ptags"><span class="ptag">Chrome</span><span class="ptag">Horizontal Bars</span><span class="ptag">Designer</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-bosw" onclick="addToCart('Boston Design Radiator 410×1600 White','EAN: 5060168223708',true,'cart-btn-bosw')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Mode Designer Radiator','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Mode Designer Radiator','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Mode Designer Radiator','install')">Book Install</button>
             </div>
           </div>
         </div>
-
         <div class="pcard">
-          <img class="pimg" src="BOS1600-410A-2.webp" alt="Boston Design Radiator Textured Grey Vertical">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/MOD500-800C.jpg" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80'" alt="Vertical Anthracite">
           <div class="pbody">
-            <p class="pcat">Designer Radiators</p>
-            <h3 class="pname">Boston — Textured Grey</h3>
-            <p class="pdesc">The same slim Boston profile in a contemporary textured grey matt finish. Pairs beautifully with modern interiors, exposed brick and industrial-style spaces. Wall brackets and fixings supplied.</p>
-            <div class="pspec">410 × 1600mm · <span>18.47 kg</span> · Textured Grey Matt · Mild Steel · Vertical</div>
-            <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">Textured Grey</span><span class="ptag">Fixings Included</span></div>
+            <span class="pcat">Designer Radiators</span>
+            <h3 class="pname">Vertical Anthracite</h3>
+            <p class="pdesc">Tall vertical flat panel in dark anthracite. A striking focal point for hallways, living rooms or any space that demands attention. Multiple sizes.</p>
+            <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">Anthracite</span><span class="ptag">Statement</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-bosa" onclick="addToCart('Boston Design Radiator 410×1600 Textured Grey','EAN: 5060168223821',true,'cart-btn-bosa')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Vertical Anthracite Radiator','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Vertical Anthracite Radiator','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Vertical Anthracite Radiator','install')">Book Install</button>
             </div>
           </div>
         </div>
-
         <div class="pcard">
-          <img class="pimg" src="CVG-2.jpg" alt="Cincinnati Design Radiator Anthracite Vertical">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/MOD500-800C.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'" alt="Horizontal Designer">
           <div class="pbody">
-            <p class="pcat">Designer Radiators</p>
-            <h3 class="pname">Cincinnati — Anthracite</h3>
-            <p class="pdesc">A bold floor-to-ceiling statement piece with distinctive semi-circular fins and a deep anthracite matt finish. At 2 metres tall this commands attention in any room. Fixings supplied.</p>
-            <div class="pspec">351 × 2000mm · <span>33.6 kg</span> · Anthracite Matt · Mild Steel · Vertical</div>
-            <div class="ptags"><span class="ptag">Vertical</span><span class="ptag">Anthracite</span><span class="ptag">Semi-Circular Fins</span></div>
+            <span class="pcat">Designer Radiators</span>
+            <h3 class="pname">Horizontal Designer</h3>
+            <p class="pdesc">Wide horizontal designer panel — perfect under windows as a low-profile feature piece. Available in white and anthracite, multiple widths.</p>
+            <div class="ptags"><span class="ptag">Horizontal</span><span class="ptag">Modern</span><span class="ptag">White / Anthracite</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-cin" onclick="addToCart('Cincinnati Design Radiator 351×2000 Anthracite','EAN: 5060168220325',true,'cart-btn-cin')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Horizontal Designer Radiator','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Horizontal Designer Radiator','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Horizontal Designer Radiator','install')">Book Install</button>
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
     <!-- TOWEL RAILS -->
     <div class="panel" id="t-towel">
-      <div class="valve-notice"><span>⚠️</span><p><strong>Valves sold separately</strong> — not included. Let us know when you enquire and we'll add compatible valves to your quote.</p></div>
-      <p class="cat-intro">Heated towel rails for bathrooms and en-suites — chrome, textured grey and more. Classic straight rails, flat-bar designer options and bold minimal profiles.</p>
+      <div class="valve-notice"><span>⚠️</span><p><strong>Valves required</strong> — sold separately. When you enquire, just let us know and we'll include compatible valves in your quote. Not sure what you need? We'll advise you.</p></div>
+      <p class="cat-intro">Heated towel rails for bathrooms and en-suites. Available in chrome, anthracite, black and more — ladder style, flat and designer options. Keeps your towels warm and your bathroom looking sharp.</p>
       <div class="pgrid">
-
         <div class="pcard">
-          <img class="pimg" src="Straight-Chrome-Rail-22mm-1.jpg" alt="Straight Towel Rail Chrome">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/Straight-Chrome-Rail-22mm-19.jpg" onerror="this.src='https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&q=80'" alt="Chrome Straight Rail">
           <div class="pbody">
-            <p class="pcat">Towel Rails</p>
-            <h3 class="pname">Straight Rail — Chrome</h3>
-            <p class="pdesc">Classic chrome towel rail with 22mm cross-tubes and sturdy mild steel construction. Handles up to 7 bar and holds 2.88 litres. Timeless in any bathroom. Fixings supplied.</p>
-            <div class="pspec">400 × 800mm · <span>5.83 kg</span> · Chrome Gloss · Mild Steel · 7 bar max · 2.88L</div>
-            <div class="ptags"><span class="ptag">Chrome</span><span class="ptag">22mm Tubes</span><span class="ptag">Fixings Included</span></div>
+            <span class="pcat">Towel Rails</span>
+            <h3 class="pname">Chrome Straight Rail</h3>
+            <p class="pdesc">Classic chrome straight towel rail. Timeless, easy to clean and works with any bathroom style. Multiple sizes available.</p>
+            <div class="ptags"><span class="ptag">Chrome</span><span class="ptag">Straight</span><span class="ptag">Multiple Sizes</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-chr" onclick="addToCart('Straight Towel Rail 400×800 Chrome','EAN: 5060168220103',true,'cart-btn-chr')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Chrome Straight Towel Rail','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Chrome Straight Towel Rail','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Chrome Straight Towel Rail','install')">Book Install</button>
             </div>
           </div>
         </div>
-
         <div class="pcard">
-          <img class="pimg" src="Oregon-500x1200-Anthracite-Lifestyle-scaled.webp" alt="Oregon Design Towel Rail Textured Grey">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/KOL1140-500WT_Kolumn_Lifestyle-v2-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&q=80'" alt="Kolumn Dual Column">
           <div class="pbody">
-            <p class="pcat">Towel Rails</p>
-            <h3 class="pname">Oregon — Textured Grey</h3>
-            <p class="pdesc">Modern flat-bar towel rail in textured grey matt. Compatible with central heating systems. A step above standard chrome for contemporary bathrooms. Fixings supplied.</p>
-            <div class="pspec">500 × 1180mm · <span>14.4 kg</span> · Textured Grey Matt · Mild Steel · Vertical</div>
-            <div class="ptags"><span class="ptag">Textured Grey</span><span class="ptag">Flat Bar</span><span class="ptag">Central Heating</span></div>
+            <span class="pcat">Towel Rails</span>
+            <h3 class="pname">Kolumn Dual Column</h3>
+            <p class="pdesc">Dual column towel radiator combining traditional column style with bathroom functionality. Available in white and anthracite — a premium bathroom centrepiece.</p>
+            <div class="ptags"><span class="ptag">Dual Column</span><span class="ptag">White / Anthracite</span><span class="ptag">Premium</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-ore" onclick="addToCart('Oregon Design Towel Rail 500×1180 Textured Grey','EAN: 5055681434588',true,'cart-btn-ore')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Kolumn Dual Column Towel Rail','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Kolumn Dual Column Towel Rail','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Kolumn Dual Column Towel Rail','install')">Book Install</button>
             </div>
           </div>
         </div>
-
         <div class="pcard">
-          <img class="pimg" src="ATL500-1200A.webp" alt="Atlantic Design Towel Rail Textured Grey">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/Straight-Chrome-Rail-22mm-19.jpg" onerror="this.src='https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&q=80'" alt="Anthracite Ladder Rail">
           <div class="pbody">
-            <p class="pcat">Towel Rails</p>
-            <h3 class="pname">Atlantic — Textured Grey</h3>
-            <p class="pdesc">Wider flat-bar towel rail in textured grey, built from strong durable steel with excellent heat output. A taller alternative to the Oregon — great for larger bathrooms and en-suites. Fixings supplied.</p>
-            <div class="pspec">500 × 1185mm · <span>15.36 kg</span> · Textured Grey Matt · Mild Steel · Vertical</div>
-            <div class="ptags"><span class="ptag">Textured Grey</span><span class="ptag">High Output</span><span class="ptag">Fixings Included</span></div>
+            <span class="pcat">Towel Rails</span>
+            <h3 class="pname">Anthracite Ladder Rail</h3>
+            <p class="pdesc">Sleek anthracite ladder towel rail. Highly popular in modern bathrooms — pairs beautifully with dark tiles, matte taps and contemporary fittings.</p>
+            <div class="ptags"><span class="ptag">Anthracite</span><span class="ptag">Ladder</span><span class="ptag">Modern</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-atl" onclick="addToCart('Atlantic Design Towel Rail 500×1185 Textured Grey','EAN: 5055681434571',true,'cart-btn-atl')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Anthracite Ladder Towel Rail','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Anthracite Ladder Towel Rail','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Anthracite Ladder Towel Rail','install')">Book Install</button>
             </div>
           </div>
         </div>
-
-        <div class="pcard">
-          <img class="pimg" src="Memphis-500x1200-Chrome-Lifestyle-1-scaled.webp" alt="Memphis Chrome Towel Rail">
-          <div class="pbody">
-            <p class="pcat">Towel Rails</p>
-            <h3 class="pname">Memphis — Chrome</h3>
-            <p class="pdesc">Sleek minimalist chrome plated towel rail with wide horizontal bars and a polished gloss finish. Pressure tested to 10 bar. Works in both classic and contemporary bathrooms. Fixings supplied.</p>
-            <div class="pspec">500 × 1200mm · <span>14.88 kg</span> · Chrome Gloss · Mild Steel · 10 bar max</div>
-            <div class="ptags"><span class="ptag">Chrome</span><span class="ptag">Minimalist</span><span class="ptag">10 bar</span></div>
-            <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-mem" onclick="addToCart('Memphis Towel Rail 500×1200 Chrome','EAN: 5055681405939',true,'cart-btn-mem')">+ Add to Enquiry</button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
 
     <!-- ELECTRIC -->
     <div class="panel" id="t-electric">
-      <div class="valve-notice" style="background:rgba(80,130,80,.07);border-color:rgba(80,160,80,.2);">
-        <span>⚡</span>
-        <p style="color:#8fc88f;"><strong style="color:#a8d8a8;">No valves needed</strong> — electric radiators connect directly to your mains supply. No pipework, no valves, no central heating required.</p>
-      </div>
-      <p class="cat-intro">No pipework needed — our Capri electric radiators run off your mains supply and install anywhere. Wi-Fi, Google Home and Alexa compatible with full weekly programming as standard.</p>
+      <div class="valve-notice"><span>⚠️</span><p><strong>Valves required</strong> — sold separately. When you enquire, just let us know and we'll include compatible valves in your quote. Not sure what you need? We'll advise you.</p></div>
+      <p class="cat-intro">Electric radiators run off electricity instead of your central heating system — no pipework needed. Ideal for lofts, extensions, offices, conservatories or any room without existing central heating.</p>
       <div class="pgrid">
-
         <div class="pcard">
-          <img class="pimg" src="CAP1600-362W-scaled.webp" alt="Capri Electric 1000W Vertical White">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/CAP1600-453W_CO-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80'" alt="Capri Electric Panel">
           <div class="pbody">
-            <p class="pcat">Electric Radiators</p>
-            <h3 class="pname">Capri Electric — Vertical White</h3>
-            <p class="pdesc">Smart aluminium electric panel heater in gloss white. Wi-Fi, Google Home and Alexa compatible with LCD display and 7-day / 24-hour programmer. Open window detection and overheat protection built in.</p>
-            <div class="pspec">1600 × 362mm · <span>7.74 kg</span> · 1000W · White Gloss · Aluminium · Vertical</div>
-            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Alexa / Google</span><span class="ptag">No Pipework</span></div>
+            <span class="pcat">Electric Radiators</span>
+            <h3 class="pname">Capri Electric Panel</h3>
+            <p class="pdesc">Electric aluminium panel heater — 1500W, vertical white finish. No pipework needed. Eco-friendly aluminium construction for fast, efficient heat.</p>
+            <div class="ptags"><span class="ptag">Electric</span><span class="ptag">No Pipework</span><span class="ptag">Aluminium</span><span class="ptag">1500W</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-cvw" onclick="addToCart('Capri Electric 1000W Vertical White','EAN: 5055681449414',false,'cart-btn-cvw')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Capri Electric Panel','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Capri Electric Panel','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Capri Electric Panel','install')">Book Install</button>
             </div>
           </div>
         </div>
-
         <div class="pcard">
-          <img class="pimg" src="CAP1600-362A-scaled.webp" alt="Capri Electric 1000W Vertical Anthracite">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/CAP1600-453W_CO-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'" alt="Electric Towel Rail">
           <div class="pbody">
-            <p class="pcat">Electric Radiators</p>
-            <h3 class="pname">Capri Electric — Vertical Anthracite</h3>
-            <p class="pdesc">The same smart Capri in a sleek anthracite matt finish. Wi-Fi, Google Home, Alexa, LCD display and full weekly programming. A bold contemporary look for any room.</p>
-            <div class="pspec">1600 × 362mm · <span>7.74 kg</span> · 1000W · Anthracite Matt · Aluminium · Vertical</div>
-            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Anthracite</span><span class="ptag">No Pipework</span></div>
+            <span class="pcat">Electric Radiators</span>
+            <h3 class="pname">Electric Towel Rail</h3>
+            <p class="pdesc">Electric heated towel rail — works completely independently of central heating. Perfect for bathrooms where adding pipework isn't an option.</p>
+            <div class="ptags"><span class="ptag">Electric</span><span class="ptag">Towel Rail</span><span class="ptag">Bathroom</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-cva" onclick="addToCart('Capri Electric 1000W Vertical Anthracite','EAN: 5055681449445',false,'cart-btn-cva')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Electric Towel Rail','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Electric Towel Rail','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Electric Towel Rail','install')">Book Install</button>
             </div>
           </div>
         </div>
-
         <div class="pcard">
-          <img class="pimg" src="Capri-White-Horizontal-1-scaled.webp" alt="Capri Electric 1000W Horizontal White">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/CAP1600-453W_CO-scaled.jpg" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80'" alt="Electric Designer">
           <div class="pbody">
-            <p class="pcat">Electric Radiators</p>
-            <h3 class="pname">Capri Electric — Horizontal White</h3>
-            <p class="pdesc">Compact horizontal Capri — ideal under windows or in tighter spaces. Same smart features: Wi-Fi, Google Home, Alexa, LCD display and 7-day programming. White gloss, lightweight aluminium.</p>
-            <div class="pspec">500 × 544mm · <span>4.05 kg</span> · 1000W · White Gloss · Aluminium · Horizontal</div>
-            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Compact</span><span class="ptag">No Pipework</span></div>
+            <span class="pcat">Electric Radiators</span>
+            <h3 class="pname">Electric Designer</h3>
+            <p class="pdesc">All the style of a designer radiator with no central heating required. Ideal for new builds, loft conversions and extensions. Programmable thermostat included.</p>
+            <div class="ptags"><span class="ptag">Electric</span><span class="ptag">Designer</span><span class="ptag">Programmable</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-chw" onclick="addToCart('Capri Electric 1000W Horizontal White','EAN: 5055681449476',false,'cart-btn-chw')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Electric Designer Radiator','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Electric Designer Radiator','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Electric Designer Radiator','install')">Book Install</button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
+    <!-- COLUMN -->
+    <div class="panel" id="t-column">
+      <div class="valve-notice"><span>⚠️</span><p><strong>Valves required</strong> — sold separately. When you enquire, just let us know and we'll include compatible valves in your quote. Not sure what you need? We'll advise you.</p></div>
+      <p class="cat-intro">Traditional column radiators with a premium, vintage feel. Hugely popular in renovated Victorian and Edwardian homes. Available in white, anthracite, raw metal and hammered gold — 2, 3 and 4 column options.</p>
+      <div class="pgrid">
         <div class="pcard">
-          <img class="pimg" src="Capri-Grey-Horizontal-2-scaled.webp" alt="Capri Electric 1000W Horizontal Anthracite">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/Legacy-Lifestyle.jpg" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80'" alt="4 Column Traditional">
           <div class="pbody">
-            <p class="pcat">Electric Radiators</p>
-            <h3 class="pname">Capri Electric — Horizontal Anthracite</h3>
-            <p class="pdesc">The compact horizontal Capri in anthracite matt. All the smart features in a darker finish — great for modern kitchens, studies and spaces where white isn't the look.</p>
-            <div class="pspec">500 × 544mm · <span>4.05 kg</span> · 1000W · Anthracite Matt · Aluminium · Horizontal</div>
-            <div class="ptags"><span class="ptag">1000W</span><span class="ptag">Wi-Fi</span><span class="ptag">Anthracite</span><span class="ptag">No Pipework</span></div>
+            <span class="pcat">Column Radiators</span>
+            <h3 class="pname">4 Column Traditional</h3>
+            <p class="pdesc">Classic 4-column radiator in white. The go-to choice for period properties and Victorian-style renovations. Horizontal and vertical, multiple sizes.</p>
+            <div class="ptags"><span class="ptag">4 Column</span><span class="ptag">White</span><span class="ptag">Traditional</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-cha" onclick="addToCart('Capri Electric 1000W Horizontal Anthracite','EAN: 5055681449506',false,'cart-btn-cha')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('4 Column Traditional Radiator','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('4 Column Traditional Radiator','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('4 Column Traditional Radiator','install')">Book Install</button>
             </div>
           </div>
         </div>
-
+        <div class="pcard">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/Legacy-Lifestyle.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'" alt="Anthracite Column">
+          <div class="pbody">
+            <span class="pcat">Column Radiators</span>
+            <h3 class="pname">Anthracite Column</h3>
+            <p class="pdesc">Traditional column shape, contemporary anthracite colour. Works brilliantly in both modern and period interiors. 2, 3 and 4 column options available.</p>
+            <div class="ptags"><span class="ptag">Anthracite</span><span class="ptag">2–4 Column</span><span class="ptag">Premium Feel</span></div>
+            <div class="pacts">
+              <button class="pbtn primary" onclick="openM('Anthracite Column Radiator','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Anthracite Column Radiator','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Anthracite Column Radiator','install')">Book Install</button>
+            </div>
+          </div>
+        </div>
+        <div class="pcard">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2025/06/Legacy-Lifestyle.jpg" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80'" alt="Raw Metal Column">
+          <div class="pbody">
+            <span class="pcat">Column Radiators</span>
+            <h3 class="pname">Raw Metal Column</h3>
+            <p class="pdesc">Industrial raw metal finish column radiator. Unique, characterful and perfect for loft conversions, exposed brick walls and industrial-style spaces.</p>
+            <div class="ptags"><span class="ptag">Raw Metal</span><span class="ptag">Industrial</span><span class="ptag">Unique Finish</span></div>
+            <div class="pacts">
+              <button class="pbtn primary" onclick="openM('Raw Metal Column Radiator','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Raw Metal Column Radiator','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Raw Metal Column Radiator','install')">Book Install</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- ALUMINIUM -->
     <div class="panel" id="t-aluminium">
-      <div class="valve-notice"><span>⚠️</span><p><strong>Valves sold separately</strong> — not included. Let us know when you enquire and we'll add compatible valves to your quote.</p></div>
-      <p class="cat-intro">Aluminium radiators heat up faster, use less energy and respond quicker to your controls than steel. Ideal for homes with smart thermostats or anyone wanting better efficiency.</p>
+      <div class="valve-notice"><span>⚠️</span><p><strong>Valves required</strong> — sold separately. When you enquire, just let us know and we'll include compatible valves in your quote. Not sure what you need? We'll advise you.</p></div>
+      <p class="cat-intro">Aluminium radiators heat up faster, cool down quicker and are more energy efficient than steel. Lighter weight and highly responsive — great for homes with smart controls or anyone wanting better efficiency.</p>
       <div class="pgrid">
-
         <div class="pcard">
-          <img class="pimg" src="VER600-13-1.webp" alt="Vermont Aluminium Radiator">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2022/05/Toronto-Radiator.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'" alt="Toronto Aluminium">
           <div class="pbody">
-            <p class="pcat">Aluminium Radiators</p>
-            <h3 class="pname">Vermont</h3>
-            <p class="pdesc">Premium aluminium radiator available in 16 sizes. Efficient, lightweight and fast to heat. Clean white finish with a contemporary look. Fixings supplied.</p>
-            <div class="pspec">670 × 1040mm · <span>22.59 kg</span> · Aluminium · 16 Sizes Available</div>
-            <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">16 Sizes</span><span class="ptag">Fast Heat</span></div>
+            <span class="pcat">Aluminium Radiators</span>
+            <h3 class="pname">Toronto</h3>
+            <p class="pdesc">Premium aluminium radiator with clean vertical fins. White finish, multiple sizes. Fast heat response with a refined, modern look.</p>
+            <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">White</span><span class="ptag">Fast Heat</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-ver" onclick="addToCart('Vermont 670×1040 Aluminium','EAN: 5055681408770',true,'cart-btn-ver')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Toronto Aluminium Radiator','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Toronto Aluminium Radiator','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Toronto Aluminium Radiator','install')">Book Install</button>
             </div>
           </div>
         </div>
-
         <div class="pcard">
-          <img class="pimg" src="main_Kartell_Victoria_575_x_440mm_White_Single_Panel_Horizontal_Radiator_63130_1713353855.jpg" alt="Victoria Single Horizontal White">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2022/05/Toronto-Radiator.jpg" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80'" alt="Victoria Single">
           <div class="pbody">
-            <p class="pcat">Aluminium Radiators</p>
-            <h3 class="pname">Victoria Single — Horizontal</h3>
-            <p class="pdesc">Wide horizontal aluminium radiator in white — clean contemporary flat panel fins with optimal heat output. Hard-wearing, efficient and built to last. Fixings supplied.</p>
-            <div class="pspec">575 × 1180mm · <span>11.42 kg</span> · White · Aluminium · Horizontal</div>
-            <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">White</span><span class="ptag">Horizontal</span></div>
+            <span class="pcat">Aluminium Radiators</span>
+            <h3 class="pname">Victoria Single</h3>
+            <p class="pdesc">White aluminium single horizontal radiator. Lightweight, efficient and available in a wide range of widths — multiple height options.</p>
+            <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">Horizontal</span><span class="ptag">Lightweight</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-vich" onclick="addToCart('Victoria Single 575×1180 White Horizontal','EAN: 5055681451653',true,'cart-btn-vich')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Victoria Single Aluminium','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Victoria Single Aluminium','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Victoria Single Aluminium','install')">Book Install</button>
             </div>
           </div>
         </div>
-
         <div class="pcard">
-          <img class="pimg" src="WHITE-VERTICAL-9-scaled.jpg" alt="Victoria Single Vertical White">
+          <img class="pimg" src="https://kartelluk.com/wp-content/uploads/2022/05/Toronto-Radiator.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'" alt="Vertical Aluminium">
           <div class="pbody">
-            <p class="pcat">Aluminium Radiators</p>
-            <h3 class="pname">Victoria Single — Vertical</h3>
-            <p class="pdesc">Tall vertical Victoria — ideal for hallways and narrow spaces. Same quality aluminium build, efficient output and clean white finish. Fixings supplied.</p>
-            <div class="pspec">1775 × 292mm · <span>7.12 kg</span> · White · Aluminium · Vertical</div>
-            <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">White</span><span class="ptag">Vertical</span><span class="ptag">Space Saving</span></div>
+            <span class="pcat">Aluminium Radiators</span>
+            <h3 class="pname">Vertical Aluminium</h3>
+            <p class="pdesc">Tall vertical aluminium radiator — great for narrow spaces like hallways and utility rooms. Efficient, stylish and takes up minimal wall width.</p>
+            <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">Vertical</span><span class="ptag">Space Saving</span></div>
             <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-vicv" onclick="addToCart('Victoria Single 1775×292 White Vertical','EAN: 5055681451691',true,'cart-btn-vicv')">+ Add to Enquiry</button>
+              <button class="pbtn primary" onclick="openM('Vertical Aluminium Radiator','purchase')">Request a Quote</button>
+              <button class="pbtn" onclick="openM('Vertical Aluminium Radiator','showroom')">Visit Showroom</button>
+              <button class="pbtn" onclick="openM('Vertical Aluminium Radiator','install')">Book Install</button>
             </div>
           </div>
         </div>
-
-        <div class="pcard">
-          <img class="pimg" src="Toronto-ALRAD-1-1809-WT-1-scaled.webp" alt="Toronto Vertical White Aluminium">
-          <div class="pbody">
-            <p class="pcat">Aluminium Radiators</p>
-            <h3 class="pname">Toronto — Vertical</h3>
-            <p class="pdesc">Premium aluminium radiator with distinctive rounded tube fins and a white matt finish — as much a design feature as a heat source. Tall and narrow, perfect for bathrooms, hallways or anywhere you want real visual impact. Fixings supplied.</p>
-            <div class="pspec">1775 × 380mm · <span>13.16 kg</span> · White Matt · Aluminium · Vertical</div>
-            <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">Rounded Fins</span><span class="ptag">Designer Look</span></div>
-            <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-torv" onclick="addToCart('Toronto 1775×380 White Vertical','EAN: 5055681450977',true,'cart-btn-torv')">+ Add to Enquiry</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="pcard">
-          <img class="pimg" src="Toronto-ALRAD-1-622-WT-3-scaled.jpg" alt="Toronto Horizontal White Aluminium">
-          <div class="pbody">
-            <p class="pcat">Aluminium Radiators</p>
-            <h3 class="pname">Toronto — Horizontal</h3>
-            <p class="pdesc">The Toronto in a wide horizontal format — the same beautiful rounded tube fins running along the wall. A standout radiator for living rooms and open-plan spaces. Fixings supplied.</p>
-            <div class="pspec">575 × 1205mm · <span>15.86 kg</span> · White · Aluminium · Horizontal</div>
-            <div class="ptags"><span class="ptag">Aluminium</span><span class="ptag">Rounded Fins</span><span class="ptag">Horizontal</span></div>
-            <div class="pacts">
-              <button class="pbtn-cart" id="cart-btn-torh" onclick="addToCart('Toronto 575×1205 White Horizontal','EAN: 5055681450953',true,'cart-btn-torh')">+ Add to Enquiry</button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- WHY VELOURA -->
 <section class="why">
   <div class="ctr">
     <div class="wgrid">
       <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3 class="wt">Supply &amp; Install</h3><p class="wp">We don't just sell — our team handles full professional installation at your door, end to end.</p></div>
-      <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div><h3 class="wt">East London Shop</h3><p class="wp">Come into 955 Romford Road, E12. See the range in person and take it away the same day.</p></div>
-      <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg></div><h3 class="wt">Quality Products</h3><p class="wp">Premium radiators from trusted manufacturers. Every product fully guaranteed.</p></div>
-      <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div><h3 class="wt">Free Advice</h3><p class="wp">Not sure what you need? Come in or call us — we'll help you pick the right radiator, no charge.</p></div>
+      <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg></div><h3 class="wt">London Showroom</h3><p class="wp">Visit our showroom and see the full range in person before you buy. No pressure, expert advice.</p></div>
+      <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg></div><h3 class="wt">Premium Quality</h3><p class="wp">Curated products from trusted manufacturers, chosen for quality of design and build. Fully guaranteed.</p></div>
+      <div class="wi"><div class="wic"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div><h3 class="wt">Expert Advice</h3><p class="wp">Not sure what you need? We'll help you choose the right product for your space — no charge, no obligation.</p></div>
     </div>
   </div>
 </section>
 
-
-<!-- REVIEWS -->
-<section class="reviews">
-  <div class="ctr">
-    <p class="slbl">What Our Customers Say</p>
-    <h2 class="stitle">Trusted by East London</h2>
-    <div class="gdiv"></div>
-    <p class="ssub">Real reviews from real customers — all verified on Google.</p>
-    <div class="rgrid">
-
-      <div class="rcard">
-        <div class="rstars">★★★★★</div>
-        <p class="rquote">The engineers were professional, friendly and informative, providing accurate details on the product that would best suit my property, with all labour costs provided up front. Whole service was second to none, highly recommend.</p>
-        <p class="rauthor">Verified Customer</p>
-        <p class="rplatform">Google Review</p>
-      </div>
-
-      <div class="rcard">
-        <div class="rstars">★★★★★</div>
-        <p class="rquote">The job was excellent. They are very professional and friendly. When they came in they dealt with the issue straight away. The service was speedy and they helped to change the boiler. Thank you.</p>
-        <p class="rauthor">Verified Customer</p>
-        <p class="rplatform">Google Review</p>
-      </div>
-
-      <div class="rcard">
-        <div class="rstars">★★★★★</div>
-        <p class="rquote">Fantastic service — diagnosed and dealt with the issue straight away. Super speedy service and ensured they helped us maintain our boiler. Thank you.</p>
-        <p class="rauthor">Verified Customer</p>
-        <p class="rplatform">Google Review</p>
-      </div>
-
-    </div>
-    <div class="rsource">
-      <a href="https://www.google.com/maps/search/Apex+Plumbing+Merchants+Ltd+E12" target="_blank" rel="noopener">See All Reviews on Google →</a>
-    </div>
+<!-- BRAND QUOTE -->
+<section class="bquote">
+  <p class="bq-text">"The finest homes are built on details most will never notice — but <em>always feel.</em>"</p>
+  <div class="bq-right">
+    <span class="bq-lbl">Start your project</span>
+    <a href="#" class="bp" style="background:var(--dark);color:var(--cream);" onclick="openM('General Enquiry','purchase');return false;">Book a Consultation</a>
   </div>
 </section>
 
+<!-- LOCATION -->
 <section class="loc" id="location">
   <div class="ctr">
     <div class="locin">
       <div>
-        <p class="loclbl">Come See Us</p>
-        <h2 class="loctit">Our Shop in<br>East London</h2>
+        <span class="loclbl">Visit Our Showroom</span>
+        <h2 class="loctit">Come See Us<br>in London</h2>
         <div class="locrows">
-          <div class="locrow"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>955 Romford Road, London, E12 5JR</div>
-          <div class="locrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/></svg>Mon–Fri: 8:30am–6pm · Sat: 8:30am–5pm · Sun: 10am–2pm</div>
-          <div class="locrow"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>sales@apexaimsltd.com</div>
-          <div class="locrow"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg><a href="tel:+447956923185" style="color:var(--tm);text-decoration:none;">+44 7956 923185</a></div>
+          <div class="locrow"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>London Showroom — address coming soon</div>
+          <div class="locrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/></svg>Mon–Fri: 9am–6pm · Sat: 9am–5pm · Sun: By appointment</div>
+          <div class="locrow"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>hello@veloura.co.uk</div>
+          <div class="locrow"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg><a href="tel:+44000000000">+44 — — — — — — — (coming soon)</a></div>
         </div>
       </div>
       <div class="mapbox">
         <div class="mapbg"></div>
         <svg viewBox="0 0 220 160" width="220" fill="none">
-          <line x1="0" y1="80" x2="220" y2="80" stroke="rgba(184,147,90,0.15)" stroke-width="10"/>
-          <line x1="110" y1="0" x2="110" y2="160" stroke="rgba(184,147,90,0.1)" stroke-width="6"/>
-          <circle cx="110" cy="80" r="16" fill="rgba(184,147,90,0.1)" stroke="#b8935a" stroke-width="1"/>
-          <circle cx="110" cy="80" r="5" fill="#b8935a" opacity="0.9"/>
-          <line x1="110" y1="87" x2="110" y2="104" stroke="#b8935a" stroke-width="1.5" opacity="0.6"/>
-          <rect x="68" y="108" width="84" height="22" rx="2" fill="rgba(14,12,9,0.9)" stroke="rgba(184,147,90,0.25)" stroke-width="0.5"/>
-          <text x="110" y="123" font-family="DM Sans,sans-serif" font-size="7.5" fill="#b8935a" text-anchor="middle" letter-spacing="1.5" opacity="0.9">E12 5JR · LONDON</text>
+          <line x1="0" y1="80" x2="220" y2="80" stroke="rgba(200,184,154,0.12)" stroke-width="10"/>
+          <line x1="110" y1="0" x2="110" y2="160" stroke="rgba(200,184,154,0.08)" stroke-width="6"/>
+          <circle cx="110" cy="80" r="16" fill="rgba(188,106,67,0.08)" stroke="#BC6A43" stroke-width="1"/>
+          <circle cx="110" cy="80" r="5" fill="#BC6A43" opacity="0.9"/>
+          <line x1="110" y1="87" x2="110" y2="104" stroke="#BC6A43" stroke-width="1.5" opacity="0.6"/>
+          <rect x="60" y="108" width="100" height="22" rx="2" fill="rgba(14,14,14,0.9)" stroke="rgba(200,184,154,0.2)" stroke-width="0.5"/>
+          <text x="110" y="123" font-family="Jost,sans-serif" font-size="7.5" fill="#BC6A43" text-anchor="middle" letter-spacing="2" opacity="0.9">VELOURA · LONDON</text>
         </svg>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div><div class="flogo">The Radiant Collection</div><div class="fsub-f">by Apex Plumbing Merchants Ltd</div></div>
-  <div class="faddr">955 Romford Road, London, E12 5JR<br>sales@apexaimsltd.com · +44 7956 923185</div>
-  <p>© 2025 Apex Plumbing Merchants Ltd. All rights reserved. &nbsp;·&nbsp; <a href="#" onclick="showPrivacy();return false;" style="color:var(--td);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--td)'">Privacy Policy</a></p>
+  <div class="footer-top">
+    <div>
+      <span class="flogo">Veloura</span>
+      <span class="fsub">Home · Living · Interiors · Est. 2026</span>
+      <p class="fdesc">Premium radiators, brassware and luxury home products for the discerning home. Curated with care, installed with precision.</p>
+    </div>
+    <div>
+      <span class="fh">Collections</span>
+      <ul class="flinks">
+        <li><a href="#">Panel Radiators</a></li>
+        <li><a href="#">Designer Radiators</a></li>
+        <li><a href="#">Towel Rails</a></li>
+        <li><a href="#">Electric Radiators</a></li>
+        <li><a href="#">Column Radiators</a></li>
+        <li><a href="#">Aluminium Radiators</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="fh">Company</span>
+      <ul class="flinks">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Showroom</a></li>
+        <li><a href="#">Trade Accounts</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="fh">Support</span>
+      <ul class="flinks">
+        <li><a href="#">Delivery</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Installation</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="fcopy">© 2026 Veloura. All rights reserved.</span>
+    <ul class="flegal">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Cookies</a></li>
+    </ul>
+  </div>
 </footer>
 
-<!-- ENQUIRY MODAL -->
+<!-- MODAL -->
 <div class="mo" id="mo" onclick="closeBg(event)">
   <div class="modal">
     <button class="mclose" onclick="closeM()">×</button>
-    <p class="mey">Apex Plumbing Merchants Ltd · E12 5JR</p>
+    <span class="mey">Veloura — Home · Living · Interiors</span>
     <h2 class="mtit">Request a Quote</h2>
     <p class="mref" id="mref">Enquiry: —</p>
     <div id="mform">
-
-      <!-- cart summary shown when coming from cart -->
-      <div class="mcart-summary" id="mcart-summary">
-        <div class="mcart-summary-title">Your Enquiry List</div>
-        <div id="mcart-summary-items"></div>
-      </div>
-
       <div class="sgrid">
-        <div class="sc on" id="s-collect" onclick="setSvc('collect')">
-          <div class="sci">🏪</div>
-          <h4>Quote &amp; Collect</h4>
-          <p>Get a quote, come into our shop at E12 5JR to pay and collect.</p>
-          <p class="scn">955 Romford Rd, E12</p>
+        <div class="sc on" id="s-purchase" onclick="setSvc('purchase')">
+          <div class="sci">🏪</div><h4>Quote &amp; Collect</h4>
+          <p>Get a quote, come to our showroom to pay and collect.</p>
+          <p class="scn">Collect in store</p>
+        </div>
+        <div class="sc" id="s-showroom" onclick="setSvc('showroom')">
+          <div class="sci">📅</div><h4>Book Showroom Visit</h4>
+          <p>Come in, see it in person and sort everything face to face.</p>
+          <p class="scn">London Showroom</p>
         </div>
         <div class="sc" id="s-install" onclick="setSvc('install')">
-          <div class="sci">🔧</div>
-          <h4>Book Installation</h4>
-          <p>Our team comes to your door and fits it professionally.</p>
+          <div class="sci">🔧</div><h4>Book Installation</h4>
+          <p>Our team comes to your door and installs it professionally.</p>
           <p class="scn">We come to you</p>
         </div>
       </div>
-
-      <!-- Valve add-on — hidden for electric -->
-      <div class="valve-box" id="valve-box">
-        <label class="valve-check">
-          <input type="checkbox" id="valve-check">
-          <span class="valve-check-label"><strong>Add valves to my enquiry</strong> — include compatible radiator valves in my quote</span>
-        </label>
-      </div>
-
-      <!-- Electric note -->
-      <div class="electric-note" id="electric-note">
-        ⚡ <strong>No valves needed</strong> — this is an electric radiator. It connects directly to your mains supply. No pipework or valves required.
-      </div>
-
       <div class="fg">
         <div class="fr"><label>First Name *</label><input type="text" id="fn" placeholder="John"></div>
         <div class="fr"><label>Last Name *</label><input type="text" id="ln" placeholder="Smith"></div>
       </div>
       <div class="fr"><label>Email Address *</label><input type="email" id="em" placeholder="john@example.com"></div>
       <div class="fr"><label>Phone Number</label><input type="tel" id="ph" placeholder="+44 7700 900000"></div>
-
+      <div class="xf" id="xf-showroom">
+        <p class="fst">📅 Showroom Appointment</p>
+        <div class="fg">
+          <div class="fr"><label>Preferred Date</label><input type="date" id="sd"></div>
+          <div class="fr"><label>Preferred Time</label><select id="st"><option value="">Select</option><option>Morning (9am–12pm)</option><option>Afternoon (12pm–5pm)</option><option>Either</option></select></div>
+        </div>
+        <p class="fnote">We'll confirm your showroom appointment within 24 hours.</p>
+      </div>
       <div class="xf" id="xf-install">
-        <p class="fst">🔧 Installation Details</p>
+        <p class="fst">🔧 Installation Appointment</p>
         <div class="fr"><label>Your Property Address *</label><input type="text" id="ia" placeholder="123 Example Street, London, E1 2AB"></div>
         <div class="fg">
-          <div class="fr"><label>Preferred Date</label><input type="date" id="idate"></div>
-          <div class="fr"><label>Preferred Time</label><select id="it"><option value="">Select</option><option>Morning (8am–12pm)</option><option>Afternoon (12pm–5pm)</option><option>Either</option></select></div>
+          <div class="fr"><label>Preferred Date</label><input type="date" id="id"></div>
+          <div class="fr"><label>Preferred Time</label><select id="it"><option value="">Select</option><option>Morning (9am–12pm)</option><option>Afternoon (12pm–5pm)</option><option>Either</option></select></div>
         </div>
         <p class="fnote">Our team comes to your door. We'll confirm your appointment and installation quote within 24 hours.</p>
       </div>
-
-      <div class="fr" style="margin-top:1rem"><label>Message / Sizes Needed / Questions</label><textarea id="mg" placeholder="E.g. room size, width/height needed, colour preference, any questions…"></textarea></div>
-      <button class="fsub2" onclick="submitM()">Send Enquiry to Apex →</button>
-      <div class="for-div">or contact us directly</div>
-      <a class="eml" id="eml" href="mailto:sales@apexaimsltd.com">sales@apexaimsltd.com</a>
-      <a class="eml" href="tel:+447956923185" style="margin-top:.5rem;">📞 +44 7956 923185</a>
+      <div class="fr" style="margin-top:1rem"><label>Message / Size Needed / Questions</label><textarea id="mg" placeholder="E.g. room size, width/height needed, colour preference, any questions…"></textarea></div>
+      <button class="fsub2" onclick="submitM()">Send Enquiry to Veloura →</button>
+      <div class="for">or contact us directly</div>
+      <a class="eml" id="eml" href="mailto:hello@veloura.co.uk">hello@veloura.co.uk</a>
     </div>
     <div class="suc" id="suc">
       <div class="suc-t">✓</div>
-      <h3 style="font-family:'Playfair Display',serif;color:var(--wh);margin-bottom:.7rem;">Enquiry Sent!</h3>
-      <p>Thank you — we'll be in touch within 24 hours.<br>Quote, collect or installation — we've got you sorted.<br><br>
-      <strong style="color:var(--gold)">Apex Plumbing Merchants Ltd<br>955 Romford Road, E12 5JR<br>sales@apexaimsltd.com</strong></p>
+      <h3 style="font-family:'Cormorant Garamond',serif;color:var(--cream);margin-bottom:.7rem;font-weight:300;">Enquiry Sent</h3>
+      <p>Thank you — we'll be in touch within 24 hours.<br>Whether a quote, showroom visit or installation, we've got you covered.<br><br>
+      <strong style="color:var(--brass)">Veloura · Home · Living · Interiors<br>hello@veloura.co.uk</strong></p>
     </div>
   </div>
 </div>
 
 <script>
-// ── ENQUIRY CART ──────────────────────────────────────────
-var cart = []; // {name, ean, needsValves, btnId}
-
-function addToCart(name, ean, needsValves, btnId) {
-  // prevent duplicates
-  for (var i = 0; i < cart.length; i++) {
-    if (cart[i].ean === ean) {
-      openCart();
-      return;
-    }
-  }
-  cart.push({name: name, ean: ean, needsValves: needsValves, btnId: btnId});
-  updateCartBtn(btnId, true);
-  renderCart();
-  openCart();
-}
-
-function removeFromCart(ean) {
-  for (var i = 0; i < cart.length; i++) {
-    if (cart[i].ean === ean) {
-      updateCartBtn(cart[i].btnId, false);
-      cart.splice(i, 1);
-      break;
-    }
-  }
-  renderCart();
-}
-
-function updateCartBtn(btnId, added) {
-  var btn = document.getElementById(btnId);
-  if (!btn) return;
-  if (added) {
-    btn.textContent = '✓ Added';
-    btn.classList.add('added');
-  } else {
-    btn.textContent = '+ Add to Enquiry';
-    btn.classList.remove('added');
-  }
-}
-
-function renderCart() {
-  var container = document.getElementById('cart-items');
-  var countEl = document.getElementById('cart-count');
-  var enquireBtn = document.getElementById('cart-enquire-btn');
-
-  countEl.textContent = cart.length;
-  countEl.classList.toggle('show', cart.length > 0);
-  enquireBtn.disabled = cart.length === 0;
-
-  if (cart.length === 0) {
-    container.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">📋</div><p>No products added yet.<br>Browse the collection and click<br><strong style="color:var(--tm)">"Add to Enquiry"</strong> on any product.</p></div>';
-    return;
-  }
-
-  var html = '';
-  for (var i = 0; i < cart.length; i++) {
-    var item = cart[i];
-    html += '<div class="cart-item">';
-    html += '<button class="cart-item-remove" onclick="removeFromCart(\'' + item.ean + '\')" title="Remove">×</button>';
-    html += '<div class="cart-item-name">' + item.name + '</div>';
-    html += '<div class="cart-item-sub">' + item.ean + '</div>';
-    if (item.needsValves) {
-      html += '<div class="cart-item-valve">⚠️ Valves sold separately — ask us to include in quote</div>';
-    }
-    html += '</div>';
-  }
-  container.innerHTML = html;
-}
-
-function openCart() {
-  document.getElementById('cart-drawer').classList.add('open');
-  document.getElementById('cart-overlay').classList.add('show');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeCart() {
-  document.getElementById('cart-drawer').classList.remove('open');
-  document.getElementById('cart-overlay').classList.remove('show');
-  document.body.style.overflow = '';
-}
-
-function openCartModal() {
-  closeCart();
-  var isFromCart = cart.length > 0;
-
-  // build cart summary
-  var summaryEl = document.getElementById('mcart-summary');
-  var summaryItems = document.getElementById('mcart-summary-items');
-  if (isFromCart) {
-    var html = '';
-    var anyValves = false;
-    for (var i = 0; i < cart.length; i++) {
-      html += '<div class="mcart-summary-item">· ' + cart[i].name + ' <span style="color:var(--td);font-size:.58rem">(' + cart[i].ean + ')</span></div>';
-      if (cart[i].needsValves) anyValves = true;
-    }
-    summaryItems.innerHTML = html;
-    summaryEl.classList.add('show');
-    // show/hide valve box based on cart contents
-    document.getElementById('valve-box').classList.toggle('show', anyValves);
-    document.getElementById('electric-note').classList.remove('show');
-    document.getElementById('mref').textContent = 'Enquiry: ' + cart.length + ' product' + (cart.length > 1 ? 's' : '') + ' from your enquiry list';
-  } else {
-    summaryEl.classList.remove('show');
-    document.getElementById('valve-box').classList.remove('show');
-    document.getElementById('electric-note').classList.remove('show');
-    document.getElementById('mref').textContent = 'Enquiry: General';
-  }
-
-  document.getElementById('mform').style.display = 'block';
-  document.getElementById('suc').style.display = 'none';
-  document.getElementById('mo').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  setSvc('collect');
-  document.getElementById('eml').href = 'mailto:sales@apexaimsltd.com?subject=' + encodeURIComponent('Radiator Enquiry — The Radiant Collection');
-}
-
-// ── QUICK ENQUIRE (single product) ───────────────────────
-var curSvc = 'collect';
-var showValves = false;
-var isElectric = false;
-
-function openM(prod, install) {
-  isElectric = prod.indexOf('Electric') !== -1;
-  var isPanel = prod.indexOf('KRAD') !== -1;
-  showValves = !isElectric && !isPanel;
-
-  document.getElementById('mcart-summary').classList.remove('show');
-  document.getElementById('valve-box').classList.toggle('show', showValves);
-  document.getElementById('electric-note').classList.toggle('show', isElectric);
-  document.getElementById('valve-check').checked = false;
-  document.getElementById('mref').textContent = 'Enquiry: ' + prod;
-  document.getElementById('mform').style.display = 'block';
-  document.getElementById('suc').style.display = 'none';
-  document.getElementById('mo').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  setSvc(install ? 'install' : 'collect');
-  document.getElementById('eml').href = 'mailto:sales@apexaimsltd.com?subject=' + encodeURIComponent('Enquiry: ' + prod + ' — The Radiant Collection');
-}
-
-function setSvc(t) {
-  curSvc = t;
-  ['collect', 'install'].forEach(function(s) {
-    var el = document.getElementById('s-' + s);
-    if (el) el.classList.toggle('on', s === t);
-  });
-  document.getElementById('xf-install').style.display = t === 'install' ? 'block' : 'none';
-}
-
-function closeM() {
-  document.getElementById('mo').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeBg(e) { if (e.target === document.getElementById('mo')) closeM(); }
-
-function submitM() {
-  var fn = document.getElementById('fn').value.trim();
-  var ln = document.getElementById('ln').value.trim();
-  var em = document.getElementById('em').value.trim();
-  if (!fn || !ln || !em) { alert('Please fill in your name and email.'); return; }
-
-  var svcLbl = curSvc === 'install' ? 'Installation (team comes to door)' : 'Quote & Collect (shop at E12 5JR)';
-  var valveNote = '';
-  if (document.getElementById('valve-box').classList.contains('show') && document.getElementById('valve-check').checked) {
-    valveNote = '\nValves: Yes — please include compatible valves in the quote';
-  }
-  var extra = '';
-  if (curSvc === 'install') {
-    extra = '\nInstall Address: ' + (document.getElementById('ia').value || 'TBC') +
-            '\nInstall Date: ' + (document.getElementById('idate').value || 'Flexible') +
-            '\nInstall Time: ' + (document.getElementById('it').value || 'Flexible');
-  }
-
-  // build products list
-  var prodText = document.getElementById('mref').textContent;
-  var cartList = '';
-  if (cart.length > 0) {
-    cartList = '\n\nProducts:\n';
-    for (var i = 0; i < cart.length; i++) {
-      cartList += '· ' + cart[i].name + ' (' + cart[i].ean + ')' + (cart[i].needsValves ? ' [valves may be needed]' : '') + '\n';
-    }
-  }
-
-  var msg = document.getElementById('mg').value.trim();
-  var subj = encodeURIComponent('Radiator Enquiry — The Radiant Collection');
-  var body = encodeURIComponent(
-    '=== NEW ENQUIRY — THE RADIANT COLLECTION ===\n\n' +
-    'Name: ' + fn + ' ' + ln + '\n' +
-    'Email: ' + em + '\n' +
-    'Phone: ' + (document.getElementById('ph').value || 'Not provided') + '\n' +
-    'Service: ' + svcLbl + extra + valveNote +
-    cartList + '\n' +
-    (cart.length === 0 ? prodText + '\n' : '') +
-    '\nMessage:\n' + (msg || 'No message') +
-    '\n\n--- theradiantcollection ---'
-  );
-  window.location.href = 'mailto:sales@apexaimsltd.com?subject=' + subj + '&body=' + body;
-  document.getElementById('mform').style.display = 'none';
-  document.getElementById('suc').style.display = 'block';
-}
-
-function showTab(id, el) {
-  document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('on'); });
-  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('on'); });
-  document.getElementById('t-' + id).classList.add('on');
+var curSvc='purchase';
+function showTab(id,el){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('t-'+id).classList.add('on');
   el.classList.add('on');
 }
-
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeM(); closeCart(); } });
-</script>
-
-<!-- COOKIE BANNER -->
-<div class="cookie-banner" id="cookie-banner">
-  <p class="cookie-text">We use cookies to keep the site running smoothly. No tracking or advertising cookies — just the basics. See our <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a> for details.</p>
-  <div class="cookie-btns">
-    <button class="cookie-accept" onclick="cookieChoice(true)">Accept</button>
-    <button class="cookie-decline" onclick="cookieChoice(false)">Decline</button>
-  </div>
-</div>
-<script>
-// Cookie banner
-(function(){
-  if(!localStorage.getItem('cookie-choice')){
-    setTimeout(function(){
-      var b=document.getElementById('cookie-banner');
-      if(b) b.classList.add('show');
-    },800);
-  }
-})();
-function cookieChoice(accepted){
-  localStorage.setItem('cookie-choice', accepted ? 'accepted' : 'declined');
-  var b=document.getElementById('cookie-banner');
-  if(b){ b.classList.remove('show'); }
+function setSvc(t){
+  curSvc=t;
+  ['purchase','showroom','install'].forEach(s=>{
+    document.getElementById('s-'+s).classList.toggle('on',s===t);
+  });
+  document.getElementById('xf-showroom').style.display=t==='showroom'?'block':'none';
+  document.getElementById('xf-install').style.display=t==='install'?'block':'none';
 }
-</script>
-
-<!-- PRIVACY POLICY MODAL -->
-<div class="mo" id="privacy-mo" onclick="if(event.target===this)closePrivacy()" style="z-index:600;">
-  <div class="modal" style="max-width:680px;">
-    <button class="mclose" onclick="closePrivacy()">×</button>
-    <p class="mey">Legal</p>
-    <h2 class="mtit">Privacy Policy</h2>
-    <p style="font-size:.65rem;color:var(--td);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--br);">Last updated: May 2025</p>
-
-    <p style="font-size:.78rem;color:var(--tm);margin-bottom:1rem;line-height:1.8;">This Privacy Policy explains how Apex Plumbing Merchants Ltd collects, uses and protects your personal information when you use this website or contact us through it.</p>
-
-    <h3 style="font-family:'Playfair Display',serif;font-size:.95rem;color:var(--wh);margin:1.4rem 0 .5rem;">Who We Are</h3>
-    <p style="font-size:.75rem;color:var(--tm);line-height:1.8;margin-bottom:.8rem;">Apex Plumbing Merchants Ltd · 955 Romford Road, London, E12 5JR · <a href="mailto:sales@apexaimsltd.com" style="color:var(--gold);">sales@apexaimsltd.com</a> · <a href="tel:+447956923185" style="color:var(--gold);">+44 7956 923185</a></p>
-
-    <h3 style="font-family:'Playfair Display',serif;font-size:.95rem;color:var(--wh);margin:1.4rem 0 .5rem;">What We Collect</h3>
-    <p style="font-size:.75rem;color:var(--tm);line-height:1.8;margin-bottom:.8rem;">When you submit an enquiry we collect your name, email address, phone number (if provided), and property address (if you request installation). We do not collect payment information — all purchases are made in person at our shop.</p>
-
-    <h3 style="font-family:'Playfair Display',serif;font-size:.95rem;color:var(--wh);margin:1.4rem 0 .5rem;">How We Use It</h3>
-    <p style="font-size:.75rem;color:var(--tm);line-height:1.8;margin-bottom:.8rem;">Solely to respond to your enquiry and arrange any installation you request. We do not use your data for marketing and will never sell or share it with third parties.</p>
-
-    <h3 style="font-family:'Playfair Display',serif;font-size:.95rem;color:var(--wh);margin:1.4rem 0 .5rem;">How Your Enquiry Is Sent</h3>
-    <p style="font-size:.75rem;color:var(--tm);line-height:1.8;margin-bottom:.8rem;">When you submit the enquiry form, your information is sent directly to our email via your device's mail app. We do not store enquiry data on any server — it goes straight to our inbox.</p>
-
-    <h3 style="font-family:'Playfair Display',serif;font-size:.95rem;color:var(--wh);margin:1.4rem 0 .5rem;">Cookies</h3>
-    <p style="font-size:.75rem;color:var(--tm);line-height:1.8;margin-bottom:.8rem;">We use one functional cookie to remember your cookie preference. This site also loads fonts from Google's servers (Google Fonts), which may set a cookie — Google's own privacy policy applies to this. We do not use advertising, tracking or analytics cookies.</p>
-
-    <h3 style="font-family:'Playfair Display',serif;font-size:.95rem;color:var(--wh);margin:1.4rem 0 .5rem;">Your Rights</h3>
-    <p style="font-size:.75rem;color:var(--tm);line-height:1.8;margin-bottom:.8rem;">Under UK GDPR you have the right to access, correct or request deletion of your data. Contact us at <a href="mailto:sales@apexaimsltd.com" style="color:var(--gold);">sales@apexaimsltd.com</a> and we'll respond within 30 days.</p>
-
-    <h3 style="font-family:'Playfair Display',serif;font-size:.95rem;color:var(--wh);margin:1.4rem 0 .5rem;">Contact</h3>
-    <p style="font-size:.75rem;color:var(--tm);line-height:1.8;">For any questions about this policy: <a href="mailto:sales@apexaimsltd.com" style="color:var(--gold);">sales@apexaimsltd.com</a> · 955 Romford Road, London, E12 5JR</p>
-  </div>
-</div>
-
-<script>
-function showPrivacy(){
-  document.getElementById('privacy-mo').classList.add('open');
+function openM(prod,svc){
+  document.getElementById('mref').textContent='Enquiry: '+prod;
+  document.getElementById('mform').style.display='block';
+  document.getElementById('suc').style.display='none';
+  document.getElementById('mo').classList.add('open');
   document.body.style.overflow='hidden';
+  setSvc(svc||'purchase');
+  document.getElementById('eml').href='mailto:hello@veloura.co.uk?subject='+encodeURIComponent('Enquiry: '+prod+' — Veloura');
 }
-function closePrivacy(){
-  document.getElementById('privacy-mo').classList.remove('open');
+function closeM(){
+  document.getElementById('mo').classList.remove('open');
   document.body.style.overflow='';
 }
+function closeBg(e){if(e.target===document.getElementById('mo'))closeM();}
+function submitM(){
+  var fn=document.getElementById('fn').value.trim();
+  var ln=document.getElementById('ln').value.trim();
+  var em=document.getElementById('em').value.trim();
+  if(!fn||!ln||!em){alert('Please fill in your name and email.');return;}
+  var svcLbl=curSvc==='install'?'Installation (team comes to door)':curSvc==='showroom'?'Showroom Visit':'Quote & Collect';
+  var extra='';
+  if(curSvc==='showroom'){extra='\nShowroom Date: '+(document.getElementById('sd').value||'Flexible')+'\nShowroom Time: '+(document.getElementById('st').value||'Flexible');}
+  else if(curSvc==='install'){extra='\nInstall Address: '+(document.getElementById('ia').value||'TBC')+'\nInstall Date: '+(document.getElementById('id').value||'Flexible')+'\nInstall Time: '+(document.getElementById('it').value||'Flexible');}
+  var prod=document.getElementById('mref').textContent;
+  var msg=document.getElementById('mg').value.trim();
+  var subj=encodeURIComponent('Enquiry — '+prod+' — Veloura');
+  var body=encodeURIComponent('=== NEW ENQUIRY — VELOURA ===\n\nName: '+fn+' '+ln+'\nEmail: '+em+'\nPhone: '+(document.getElementById('ph').value||'Not provided')+'\nService: '+svcLbl+extra+'\n\n'+prod+'\n\nMessage:\n'+(msg||'No message')+'\n\n--- veloura.co.uk ---');
+  window.location.href='mailto:hello@veloura.co.uk?subject='+subj+'&body='+body;
+  document.getElementById('mform').style.display='none';
+  document.getElementById('suc').style.display='block';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 </script>
-
 </body>
 </html>
